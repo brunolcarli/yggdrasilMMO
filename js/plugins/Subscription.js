@@ -1,5 +1,5 @@
-(function() {
-
+// (function() {
+  var webSocket;
 
   function onCharacterEvent(data) {
     let valid_events = {
@@ -83,7 +83,7 @@
     $gameMap._events[$gameMap._events.length-1].data = data;
   }
 
-
+  function subscribe(){
   const client_id = 'client__' + Math.random().toString(16).substr(2, 8);
   const GQL = {
     CONNECTION_INIT: 'connection_init',
@@ -103,7 +103,7 @@
   };
 
   console.log('Connecting to broadcaster...');
-  const webSocket = new WebSocket("wss://ggj23server.brunolcarli.repl.co/subscriptions/", "graphql-ws");
+  webSocket = new WebSocket("wss://ggj23server.brunolcarli.repl.co/subscriptions/", "graphql-ws");
   webSocket.onmessage = function (event) {
     data = JSON.parse(event.data);
     operation = Object.keys(data['payload']['data'])[0];
@@ -124,5 +124,5 @@
     console.log('Subscribed to character events channel');
     console.log('Subscriptions completed!');
   };
-
-})();
+}
+// })();
