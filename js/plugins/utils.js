@@ -57,7 +57,7 @@ function passwordPrompt(text){
           if (e.target.tagName !== 'BUTTON') { return; } //nothing to do - user clicked somewhere else
           pwprompt.removeEventListener('click', handleButtonClicks); //removes eventhandler on cancel or ok
           if (e.target === pwokbutton) { //click on ok-button
-            document.body.removeChild(pwprompt); 
+            // document.body.removeChild(pwprompt);
             resolve(
                 {
                     'email': emailinput.value,
@@ -68,8 +68,8 @@ function passwordPrompt(text){
             reject(new Error('User cancelled')); //return an error
             
           }
-        //   document.body.removeChild(pwprompt);  //as we are done clean up by removing the password-prompt
-        delete pwprompt;
+          document.body.removeChild(pwprompt);  //as we are done clean up by removing the password-prompt
+          delete pwprompt;
         });
         // pwinput.addEventListener('keyup',function handleEnter(e){ //users dont like to click on buttons
         //     if(e.keyCode == 13){ //if user enters "enter"-key on password-field

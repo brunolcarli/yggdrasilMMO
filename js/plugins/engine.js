@@ -30,3 +30,18 @@ function render_map_enemies(data){
         }
     }
 }
+
+function render_map_players(data){
+  console.log(data)
+  for (i in data){
+      let event_id = class_to_event(data[i]['classType']);
+      try{
+          Galv.SPAWN.event(event_id, data[i]['positionX'], data[i]['positionY']);
+          $gameMap._events[$gameMap._events.length-1].data = data[i];
+      }
+      catch(err){
+          console.log(err);
+          continue;
+      }
+  }
+}

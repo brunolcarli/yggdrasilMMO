@@ -189,12 +189,12 @@ function character_login_mutation(input_data, authorization) {
         .then(json)
         .then(data => {
             data = data['data']['characterLogin']['character'];
-            console.log(data);
-            localStorage.setItem('max_hp', data['maxHp']);
-            localStorage.setItem('max_sp', data['maxHp']);
-            localStorage.setItem('current_hp', data['currentHp']);
-            localStorage.setItem('current_sp', data['currentHp']);
-            localStorage.setItem('is_ko', data['isKo']);
+            // console.log(data);
+            // localStorage.setItem('max_hp', data['maxHp']);
+            // localStorage.setItem('max_sp', data['maxHp']);
+            // localStorage.setItem('current_hp', data['currentHp']);
+            // localStorage.setItem('current_sp', data['currentHp']);
+            // localStorage.setItem('is_ko', data['isKo']);
             return data;
         })
         .catch(err => {
@@ -248,7 +248,7 @@ function query_logged_characters(area_location) {
     return fetch(server_host, options)
         .then(json)
         .then(response => {
-            return response['data'];
+            return response['data']['characters'];
         })
         .catch(err => {
             console.error(err);
