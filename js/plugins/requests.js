@@ -181,7 +181,7 @@ function user_characters() {
 
 function character_login_mutation(input_data, authorization) {
     const query = `characterLogin(input: ${input_data})`;
-    const payload = `{"query": "mutation charLogin{${query}{character { maxHp maxSp currentHp currentSp isKo skills{ name spCost power range description effect{targetAttributes duration value condition}} }}}"}`;
+    const payload = `{"query": "mutation charLogin{${query}{character { id maxHp maxSp currentHp currentSp isKo skills{ name spCost power range description effect{targetAttributes duration value condition}} }}}"}`;
 
     var options = get_request_options(payload);
     // options['headers']['Authorization'] = authorization;

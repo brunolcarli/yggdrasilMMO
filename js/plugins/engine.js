@@ -17,6 +17,7 @@ function class_to_event(class_type){
     return enemy2event[enemy_name];
   }
 
+
 function render_map_enemies(data){
     for (i in data){
         let event_id = enemy_to_event(data[i]['name']);
@@ -31,9 +32,13 @@ function render_map_enemies(data){
     }
 }
 
+
 function render_map_players(data){
-  console.log(data)
   for (i in data){
+      // Do not render self player character
+      if (data[i]['name'] == logged_char['name'] && data[i]['id'] == logged_char['id']){
+        continue;
+      }
       let event_id = class_to_event(data[i]['classType']);
       try{
           Galv.SPAWN.event(event_id, data[i]['positionX'], data[i]['positionY']);
