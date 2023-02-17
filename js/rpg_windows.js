@@ -5764,6 +5764,7 @@ Window_TitleCommand.prototype.makeCommandList = async function() {
                 logged_char = user_characters_response['characters'][0];
                 DataManager.setupNewGame();
                 SceneManager.goto(Scene_Map);
+                subscribe();
             });
         }
     });
