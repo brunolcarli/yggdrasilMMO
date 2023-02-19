@@ -47,8 +47,9 @@
     event._user.battler._hp = data['hp'];
     if (data['is_ko'] == true){
       Galv.SPAWN.unspawn(event);
+      delete $gameMap._events[i];
     }
-    delete $gameMap._events[i];
+    
   }
 
 
