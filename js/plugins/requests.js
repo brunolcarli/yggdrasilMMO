@@ -113,7 +113,6 @@ function update_position(player, x, y) {
     })
         .then(json)
         .then(data => {
-            console.log(data);
             return data
         })
         .catch(err => {
@@ -181,7 +180,7 @@ function user_characters() {
 
 function character_login_mutation(input_data, authorization) {
     const query = `characterLogin(input: ${input_data})`;
-    const payload = `{"query": "mutation charLogin{${query}{character { id maxHp maxSp currentHp currentSp isKo skills{ name spCost power range description effect{targetAttributes duration value condition}} }}}"}`;
+    const payload = `{"query": "mutation charLogin{${query}{character { id lv name maxHp maxSp currentHp currentSp power resistance agility isKo areaLocation classType positionX positionY skills{ name } }}}"}`;
 
     var options = get_request_options(payload);
     // options['headers']['Authorization'] = authorization;
@@ -189,12 +188,6 @@ function character_login_mutation(input_data, authorization) {
         .then(json)
         .then(data => {
             data = data['data']['characterLogin']['character'];
-            // console.log(data);
-            // localStorage.setItem('max_hp', data['maxHp']);
-            // localStorage.setItem('max_sp', data['maxHp']);
-            // localStorage.setItem('current_hp', data['currentHp']);
-            // localStorage.setItem('current_sp', data['currentHp']);
-            // localStorage.setItem('is_ko', data['isKo']);
             return data;
         })
         .catch(err => {
@@ -389,6 +382,52 @@ function update_enemy_position(enemy_id, x, y) {
     })
         .then(json)
         .then(data => {
+            return data;
+        })
+        .catch(err => {
+            console.error(err);
+        });
+};
+
+
+function update_enemy_vital_stats(enemy_id, hp, sp) {
+    // var token = localStorage.getItem('token');
+    var headers = {
+        "cookie": "csrftoken=9YXcKsPnJSojmIXsjvqlM7TFP0tBfiU8GwVopYDWNKHSQnEUKLnPzJdsCjSb0Cfn",
+        "Content-Type": "application/json",
+        // "Authorization": `JWT ${token}`
+    };
+    return fetch(server_host, {
+        "method": "POST",
+        "headers": headers,
+        "body": `{\"query\":\"mutation enemy_health { updateEnemyVitalStats(input:{ id: ${enemy_id} hp: ${hp} sp: ${sp} }){ enemy{ id name maxHp currentHp areaLocation isKo} } }\"}`
+    })
+        .then(json)
+        .then(data => {
+            console.log(data)
+            return data;
+        })
+        .catch(err => {
+            console.error(err);
+        });
+};
+
+
+function update_character_vital_stats(character_id, hp, sp) {
+    // var token = localStorage.getItem('token');
+    var headers = {
+        "cookie": "csrftoken=9YXcKsPnJSojmIXsjvqlM7TFP0tBfiU8GwVopYDWNKHSQnEUKLnPzJdsCjSb0Cfn",
+        "Content-Type": "application/json",
+        // "Authorization": `JWT ${token}`
+    };
+    return fetch(server_host, {
+        "method": "POST",
+        "headers": headers,
+        "body": `{\"query\":\"mutation character_health { updateCharacterVitalStats(input:{ id: ${character_id} hp: ${hp} sp: ${sp} }){ character{ id name maxHp currentHp maxSp currentSp areaLocation isKo} } }\"}`
+    })
+        .then(json)
+        .then(data => {
+            console.log(data)
             return data;
         })
         .catch(err => {

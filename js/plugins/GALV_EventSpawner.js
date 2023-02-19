@@ -126,17 +126,17 @@ Galv.SPAWN.onScene = function() {
 	return false;
 };
 
-Galv.SPAWN.event = function(eventId,x,y,save) {
+Galv.SPAWN.event = function(eventId,x,y,save, data) {
 	if (!Galv.SPAWN.onScene()) return;
 
 	if (y == undefined || y === true) {
 		var save = y;
 		// Spawn random region where x = array of region Id's
 		var coords = Galv.SPAWN.randomRegion(x,y);
-		if (coords) $gameMap.spawnEvent(eventId,coords[0],coords[1],save);
+		if (coords) $gameMap.spawnEvent(eventId,coords[0],coords[1],save, data);
 	} else {
 		// Spawn X,Y position
-		if (Galv.SPAWN.canSpawnOn(x,y)) $gameMap.spawnEvent(eventId,x,y,save);
+		if (Galv.SPAWN.canSpawnOn(x,y)) $gameMap.spawnEvent(eventId,x,y,save, data);
 	};
 };
 
@@ -267,17 +267,17 @@ Game_Map.prototype.setupSpawnEvents = function() {
 		var x = event.x;
 		var y = event.y;
 		var id = event.id;
-		this._events[eId] = new Game_SpawnEvent(this._mapId,eId,x,y,id,true);
+		this._events[eId] = new Game_SpawnEvent(this._mapId,eId,x,y,id,true, event.data);
 	};
 };
 
-Game_Map.prototype.spawnEvent = function(id,x,y,save) {
+Game_Map.prototype.spawnEvent = function(id,x,y,save, data) {
 	// Get highest event id available
     var eId = this._events.length;
 	// Add to most recent spawn event variable
 	this._lastSpawnEventId = eId;
 	// Add event to event list
-    this._events[eId] = new Game_SpawnEvent(this._mapId,eId,x,y,id,save);
+    this._events[eId] = new Game_SpawnEvent(this._mapId,eId,x,y,id,save, data);
 	
 	// Add save data if save
 	if (save) this._savedSpawnedEvents[this._mapId][eId] = {id: id, x:x, y:y, eId: Number(eId)};
@@ -378,12 +378,13 @@ function Game_SpawnEvent() {
 Game_SpawnEvent.prototype = Object.create(Game_Event.prototype);
 Game_SpawnEvent.prototype.constructor = Game_SpawnEvent;
 
-Game_SpawnEvent.prototype.initialize = function(mapId,eventId,x,y,spawnEventId,saveEvent) {
+Game_SpawnEvent.prototype.initialize = function(mapId,eventId,x,y,spawnEventId,saveEvent, data) {
 	this._spawnX = x;
 	this._spawnY = y;
 	this._spawnEventId = spawnEventId;
 	this.isSpawnEvent = true;
 	this.isSavedEvent = saveEvent;
+	this.data = data;
 	Game_Event.prototype.initialize.call(this,mapId,eventId);
 	DataManager.extractMetadata(this.event());
 };

@@ -8,7 +8,8 @@ function class_to_event(class_type){
     };
     return class2event[class_type];
   }
-  function enemy_to_event(enemy_name){
+
+function enemy_to_event(enemy_name){
     const enemy2event = {
       'goblin': 4,
       'spider': 5,
@@ -22,8 +23,8 @@ function render_map_enemies(data){
     for (i in data){
         let event_id = enemy_to_event(data[i]['name']);
         try{
-            Galv.SPAWN.event(event_id, data[i]['positionX'], data[i]['positionY']);
-            $gameMap._events[$gameMap._events.length-1].data = data[i];
+            Galv.SPAWN.event(event_id, data[i]['positionX'], data[i]['positionY'], false, data[i]);
+            // $gameMap._events[$gameMap._events.length-1].data = data[i];
         }
         catch(err){
             console.log(err);
@@ -41,12 +42,23 @@ function render_map_players(data){
       }
       let event_id = class_to_event(data[i]['classType']);
       try{
-          Galv.SPAWN.event(event_id, data[i]['positionX'], data[i]['positionY']);
-          $gameMap._events[$gameMap._events.length-1].data = data[i];
+          Galv.SPAWN.event(event_id, data[i]['positionX'], data[i]['positionY'], false, data[i]);
+          // $gameMap._events[$gameMap._events.length-1].data = data[i];
       }
       catch(err){
           console.log(err);
           continue;
       }
   }
+}
+
+
+async function health_handler(id, class_type, hp, sp){
+  const class_type_mapper = {
+    'dps': update_character_vital_stats,
+    'tanker': update_character_vital_stats,
+    'supporter': update_character_vital_stats,
+    'enemy': update_enemy_vital_stats,
+  };
+  await class_type_mapper[class_type](id, hp, sp);
 }

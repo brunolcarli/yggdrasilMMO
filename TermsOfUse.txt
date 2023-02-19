@@ -1,0 +1,76 @@
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+■  TERMS OF USE                                                    ■
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+Ver 1.1 (2021/04/23) by Moghunter
+
+1 – You are free to use my plugins in commercial or non-commercial projects.
+2 – You are free to use my plugins in projects featuring adult contents.
+3 – You are free to edit and adapt my plugins to your project.
+4 – You are free to redistribute my plugins.
+5 – You can modify my plugins and redistribute your versions.
+6 – You can translate my plugins in other languages.
+7 – Moghunter must be given credit, even modified plugins.
+
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
+■ Monetizing my plugins
+
+
+You are not allowed to monetize my plugins or part of them. Except these two situations.
+
+– When you use my plugins in your personal project (as commercial game)
+
+– When someone make a specific request to modify my plugins, in this case you can charge for your services, only for this person (private deal).
+
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
+■ Redistributing my Plugins on other websites
+
+
+– Your are free to redistribute my plugins in other websites, but you are not allowed to remove my name and this blog address from the plugin description.
+
+– You can’t monetize them. (sell or ask for donations)
+
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
+■ Modifications on my plugins
+
+
+– You are free to modify/edit my plugins.
+
+– You are free redistribute them.
+
+– You can’t monetize them. (sell or ask for donations)
+
+
+– You can’t change the plugin name, but you can add “sub tittle name”
+
+Original Name + (Sub Tittle Name)
+
+MOG Battle Hud (George Edition)
+
+– You can’t change the JS filename (EG MOG_BattleHud.js to George_BattleHud.js is forbidden)
+
+– You are not allowed to delete my name and this blog address from plugin description.
+
+– You have to put in the description what you modified.
+
+– I’m not responsible for your modifications, project demos or video demonstrations.
+
+– Add your name and the sub tittle plugin name in the plugin description, just like the image below. If you don’t have website/blog just add your email.
+
+
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
+■ About plagiarism
+
+
+I’ll consider plagiarism in the following situations.
+
+– Remove my name from my plugins.
+
+– Use part of my plugins (codes) in other plugins.
+
+– Use part of my plugins (codes) in other plugins, just changing methods, functions or variables names, example:
+
+– Using a very very similar code.

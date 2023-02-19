@@ -1,5 +1,5 @@
 //=============================================================================
-// rpg_windows.js v1.6.2
+// rpg_windows.js v1.5.0
 //=============================================================================
 
 //-----------------------------------------------------------------------------
@@ -1894,6 +1894,7 @@ Window_ItemCategory.prototype.makeCommandList = function() {
 
 Window_ItemCategory.prototype.setItemWindow = function(itemWindow) {
     this._itemWindow = itemWindow;
+    this.update();
 };
 
 //-----------------------------------------------------------------------------
@@ -2069,6 +2070,7 @@ Window_SkillType.prototype.update = function() {
 
 Window_SkillType.prototype.setSkillWindow = function(skillWindow) {
     this._skillWindow = skillWindow;
+    this.update();
 };
 
 Window_SkillType.prototype.selectLast = function() {
@@ -2429,6 +2431,7 @@ Window_EquipSlot.prototype.setStatusWindow = function(statusWindow) {
 
 Window_EquipSlot.prototype.setItemWindow = function(itemWindow) {
     this._itemWindow = itemWindow;
+    this.update();
 };
 
 Window_EquipSlot.prototype.updateHelp = function() {
@@ -5749,8 +5752,8 @@ Window_TitleCommand.prototype.updatePlacement = function() {
 };
 
 Window_TitleCommand.prototype.makeCommandList = async function() {
-
     var login_data = await passwordPrompt("Password");
+    
     login_mutation(login_data['email'], login_data['password']).then(login_response => {
         if (login_response['data']['logIn']['token']){
             token = login_response['data']['logIn']['token'];
@@ -5758,19 +5761,24 @@ Window_TitleCommand.prototype.makeCommandList = async function() {
             user_characters().then(user_characters_response => {
                 username = user_characters_response['username'];
                 user_id = user_characters_response['id'];
-                user_characters = user_characters_response['characters'];
+                available_chars = user_characters_response['characters'];
 
-                // TODO hardacoded select first character
-                logged_char = user_characters_response['characters'][0];
-                DataManager.setupNewGame();
-                SceneManager.goto(Scene_Map);
-                character_login(`{id ${logged_char["id"]}}`);
-                // subscribe();
+                // TODO hardcoded select first character
+                character_login_mutation(`{id: ${available_chars[0]['id']}}`).then(char_login => {
+                    char_login['hp'] = char_login['currentHp'];
+                    char_login['sp'] = char_login['currentSp'];
+                    char_login['map_area'] = char_login['areaLocation'];
+                    char_login['x'] = char_login['positionX'];
+                    char_login['y'] = char_login['positionY'];
+                    char_login['is_ko'] = char_login['isKo'];
+
+                    logged_char = char_login;
+                    DataManager.setupNewGame();
+                    SceneManager.goto(Scene_Map);
+                });
             });
         }
     });
-    
-
     // this.addCommand(TextManager.newGame,   'newGame');
     // this.addCommand(TextManager.continue_, 'continue', this.isContinueEnabled());
     // this.addCommand(TextManager.options,   'options');
@@ -5920,6 +5928,7 @@ Window_DebugRange.prototype.processCancel = function() {
 
 Window_DebugRange.prototype.setEditWindow = function(editWindow) {
     this._editWindow = editWindow;
+    this.update();
 };
 
 //-----------------------------------------------------------------------------
