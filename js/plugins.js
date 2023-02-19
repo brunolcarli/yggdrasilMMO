@@ -12,7 +12,7 @@ var $plugins =
 {"name":"------------------------","status":false,"description":"----------------------------------------------------------------------------------","parameters":{}},
 {"name":"-TITLE SCREEN","status":false,"description":"","parameters":{}},
 {"name":"------------------------","status":false,"description":"----------------------------------------------------------------------------------","parameters":{}},
-{"name":"MOG_TitleSplashScreen","status":true,"description":"(v1.0) Adiciona logos antes da tela de título.","parameters":{"Splash Frames":"2","Slash Duration":"120","Splash Fade Duration":"2","Full Screen Mode":"false"}},
+{"name":"MOG_TitleSplashScreen","status":false,"description":"(v1.0) Adiciona logos antes da tela de título.","parameters":{"Splash Frames":"2","Slash Duration":"120","Splash Fade Duration":"2","Full Screen Mode":"false"}},
 {"name":"------------------------","status":false,"description":"----------------------------------------------------------------------------------","parameters":{}},
 {"name":"-BATTLE","status":false,"description":"","parameters":{}},
 {"name":"------------------------","status":false,"description":"----------------------------------------------------------------------------------","parameters":{}},
