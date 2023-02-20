@@ -35,6 +35,6 @@ null,
 {"id":33,"expanded":true,"name":"MAP 09","order":24,"parentId":23,"scrollX":720.8888888888889,"scrollY":475.1111111111111},
 {"id":34,"expanded":false,"name":"MAP 10 (Boss)","order":25,"parentId":23,"scrollX":728,"scrollY":388.8888888888889},
 {"id":35,"expanded":false,"name":"EVENT_GROUP","order":37,"parentId":0,"scrollX":998,"scrollY":682},
-{"id":36,"expanded":true,"name":"ancient_forest_area_1","order":36,"parentId":37,"scrollX":982,"scrollY":682},
+{"id":36,"expanded":true,"name":"ancient_forest_area_1","order":36,"parentId":37,"scrollX":1112.7272727272727,"scrollY":1100.7272727272727},
 {"id":37,"expanded":true,"name":"Yggdrasil","order":35,"parentId":0,"scrollX":998,"scrollY":682}
 ]
