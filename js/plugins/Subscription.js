@@ -46,8 +46,11 @@
 
     event._user.battler._hp = data['hp'];
     if (data['is_ko'] == true){
-      Galv.SPAWN.unspawn(event);
-      delete $gameMap._events[i];
+      try{
+        Galv.SPAWN.unspawn(event);
+        delete $gameMap._events[i];
+      }
+      catch(err){}
     }
     
   }
@@ -70,9 +73,12 @@
     }
 
     for (let i=0; i < 15; i++){
-      setTimeout(() => {
-        event.moveStraight(event.findDirectionTo(data['x'], data['y']));
-      }, i * 100);
+      try{
+        setTimeout(() => {
+          event.moveStraight(event.findDirectionTo(data['x'], data['y']));
+        }, i * 100);
+      }
+      catch(err){break;}
     }
   }
 
@@ -95,9 +101,12 @@
     }
 
     for (let i=0; i < 15; i++){
-      setTimeout(() => {
-        event.moveStraight(event.findDirectionTo(data['x'], data['y']));
-      }, i * 100);
+      try{
+        setTimeout(() => {
+          event.moveStraight(event.findDirectionTo(data['x'], data['y']));
+        }, i * 1000);
+      }
+      catch(err){break;}
     }
   }
 

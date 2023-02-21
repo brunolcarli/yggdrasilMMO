@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css?family=Share+Tech+Mono");
+
+.keyboard-control {
+    cursor: pointer;
+}
+body {
+    font-family: "Share Tech Mono", monospace;
+}
+
+.message-container {
+    padding-top: 2.5em;
+    text-align: center;
+}
+
+.keyboard {
+    padding: 0.5em 0;
+    width: 400px;
+    opacity: 0.8;
+    margin: -200px auto;
+}
+.top-row {
+    width: 224px;
+    margin: 0 auto;
+}
+.bottom-row {
+    display: inline-flex;
+}
+
+.key {
+    background-color: #353943;
+    border: 1px solid #834426;
+    box-shadow: 5px 5px #c2b7ab;
+    color: #ffffff;
+    width: 60px;
+    margin: 15px;
+    text-align: center;
+    top: 0;
+    left: 0;
+    transition: all 0.07s ease;
+}
+.activeKey {
+    transform: scale(1.1);
+    position: relative;
+    top: 0.2em;
+    left: 0.2em;
+    box-shadow: 0 0 0 0;
+}
+.key > p {
+    font-size: 2em;
+}

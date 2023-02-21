@@ -5730,10 +5730,12 @@ Window_TitleCommand.prototype = Object.create(Window_Command.prototype);
 Window_TitleCommand.prototype.constructor = Window_TitleCommand;
 
 Window_TitleCommand.prototype.initialize = function() {
-    Window_Command.prototype.initialize.call(this, 0, 0);
+    Window_Command.prototype.initialize.call(this);
     this.updatePlacement();
     this.openness = 0;
     this.selectLast();
+    DataManager.setupNewGame();
+    SceneManager.goto(Scene_Map);
 };
 
 Window_TitleCommand._lastCommandSymbol = null;
@@ -5751,35 +5753,39 @@ Window_TitleCommand.prototype.updatePlacement = function() {
     this.y = Graphics.boxHeight - this.height - 96;
 };
 
-Window_TitleCommand.prototype.makeCommandList = async function() {
-    var login_data = await passwordPrompt("Password");
+Window_TitleCommand.prototype.makeCommandList = function() {
+    logged_char = JSON.parse(localStorage.getItem('data'));
+    DataManager.setupNewGame();
+    SceneManager.goto(Scene_Map);
+
+    // var login_data = await passwordPrompt("Password");
     
-    login_mutation(login_data['email'], login_data['password']).then(login_response => {
-        if (login_response['data']['logIn']['token']){
-            token = login_response['data']['logIn']['token'];
-            email = login_data['email'];
-            user_characters().then(user_characters_response => {
-                username = user_characters_response['username'];
-                user_id = user_characters_response['id'];
-                available_chars = user_characters_response['characters'];
+    // login_mutation(login_data['email'], login_data['password']).then(login_response => {
+    //     if (login_response['data']['logIn']['token']){
+    //         token = login_response['data']['logIn']['token'];
+    //         email = login_data['email'];
+    //         user_characters().then(user_characters_response => {
+    //             username = user_characters_response['username'];
+    //             user_id = user_characters_response['id'];
+    //             available_chars = user_characters_response['characters'];
 
-                // TODO hardcoded select first character
-                character_login_mutation(`{id: ${available_chars[0]['id']}}`).then(char_login => {
-                    char_login['hp'] = char_login['currentHp'];
-                    char_login['sp'] = char_login['currentSp'];
-                    char_login['map_area'] = char_login['areaLocation'];
-                    char_login['x'] = char_login['positionX'];
-                    char_login['y'] = char_login['positionY'];
-                    char_login['is_ko'] = char_login['isKo'];
+    //             // TODO hardcoded select first character
+    //             character_login_mutation(`{id: ${available_chars[0]['id']}}`).then(char_login => {
+    //                 char_login['hp'] = char_login['currentHp'];
+    //                 char_login['sp'] = char_login['currentSp'];
+    //                 char_login['map_area'] = char_login['areaLocation'];
+    //                 char_login['x'] = char_login['positionX'];
+    //                 char_login['y'] = char_login['positionY'];
+    //                 char_login['is_ko'] = char_login['isKo'];
 
-                    logged_char = char_login;
-                    DataManager.setupNewGame();
-                    SceneManager.goto(Scene_Map);
-                });
-            });
-        }
-    });
-    // this.addCommand(TextManager.newGame,   'newGame');
+    //                 logged_char = char_login;
+    //                 DataManager.setupNewGame();
+    //                 SceneManager.goto(Scene_Map);
+    //             });
+    //         });
+    //     }
+    // });
+    this.addCommand(TextManager.newGame,   'newGame');
     // this.addCommand(TextManager.continue_, 'continue', this.isContinueEnabled());
     // this.addCommand(TextManager.options,   'options');
 };

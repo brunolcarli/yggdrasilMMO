@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+        <script src="../js/init.js"></script>
+        <script src="../js/forms.js"></script>
+        <script src="../js/utils.js"></script>
+        <script src="../js/requests.js"></script>
+        <script src="../js/engine.js"></script>
+        <style>
+            .navbar {
+                margin-bottom: 0;
+                border-radius: 0;
+            }
+            li:hover {
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body onload="user_characters()">
+        <!-- TOP NAVIGATION BAR -->
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>                        
+                    </button>
+                </div>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="pages/signup.html">Log Out</a></li>
+                    <li><a href="pages/about.html">About</a></li>
+                    <li><a href="pages/developers.html">Developers</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Character creation Modal -->
+        <div id="create_char_form">
+            <div class="text-right">
+                <button type="button" class="btn btn-light" onclick="document.getElementById('NewCharModal').style.display='block'" >
+                    New Character
+                </button>
+            </div>
+                <div id="NewCharModal" class="modal" tabindex="-1" >
+                    <div class="modal-content">
+                        <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="char-name" class="col-form-label">Character Nickname:</label>
+                                <input type="text" class="form-control" id="char-name-creation">
+                            </div>
+                            <div>
+                                <select id="char-class-select" class="char-class-select" aria-label="Character Class">
+                                    <option selected>Choose the Character Class</option>
+                                    <option value="DPS">DPS</option>
+                                    <option value="TANKER">TANKER</option>
+                                    <option value="SUPPORTER">SUPPORTER</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <button type="button" class="btn btn-outline-success" onclick="send_create_character_request()">Create</button>
+                    <button type="button" onclick="document.getElementById('NewCharModal').style.display='none'" class="btn btn-outline-danger" title="Close Modal">Cancel</button>      
+                </div>
+            </div>
+            <script>
+
+                var modal = document.getElementById('NewCharModal');
+                window.onclick = function(event) {
+                    if (event.target == modal) {
+                            modal.style.display = "none";
+                    }
+                }
+            </script>     
+        </div>
+
+        <!-- MAIN CHAR SElECTION (IF ANY) -->
+        <div class="container">
+            <h2>Select Character</h2>
+            <form><div class="row" id="chars_panel"></div></form>
+            <br />
+        </div>
+
+        <!-- Confirmation -->
+        <div class="container">
+            <button type="input" onCLick="start_game()">
+                Start game
+            </button>
+        </div>
+    </body>
+    
+</html>
+
+👾

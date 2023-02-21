@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/styles.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+        <script src="../js/plugins/init.js"></script>
+        <script src="../js/plugins/forms.js"></script>
+        <script src="../js/plugins/requests.js"></script>
+
+<!-- 
+        <script src="https://unpkg.com/vue/dist/vue.js"></script>
+        <script src="https://unpkg.com/apollo-client-browser@1.9.0"></script>
+        <script src="https://unpkg.com/vue-apollo@2.1.0-beta.19"></script> -->
+        <style>
+            .navbar {
+                margin-bottom: 0;
+                border-radius: 0;
+            }
+            li:hover {
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body background="../img/titles1/bg.png">
+        
+    <div class="jumbotron text-center">
+            <div class="logo">
+                <img src="../img/titles1/logo.png" width="100%" height="100%"/>
+            </div>
+            </div>
+        <div class="well">
+            <form>
+                <div class="form-group">
+                  <label for="newUserName">USUÁRIO:</label>
+                  <input type="text" class="form-control" id="newUserName" placeholder="Username">
+                </div>
+                <div class="form-group">
+                  <label for="newUserEmail">EMAIL:</label>
+                  <input type="email" class="form-control" id="newUserEmail" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <label for="newUserPassword">SENHA:</label>
+                    <input type="password" class="form-control" id="newUserPassword" placeholder="Password">
+                  </div>
+            </form>
+            <div class="text-center">
+                <button type="input" onCLick="sign_up()" class="btn btn-primary"><b>CRIAR CONTA</b></button>
+            </div>
+        </div>
+
+        <div class="text-center">
+            Já possui uma conta? <a href="../index.html">Entrar</a>
+        </div>
+        <br/><hr/>
+        <footer class="container-fluid text-center">
+            <p>Beelzeware 2023</p>
+        </footer>
+</html>
