@@ -72,7 +72,7 @@
     for (let i=0; i < 15; i++){
       setTimeout(() => {
         event.moveStraight(event.findDirectionTo(data['x'], data['y']));
-      }, i * 10);
+      }, i * 100);
     }
   }
 
@@ -97,7 +97,7 @@
     for (let i=0; i < 15; i++){
       setTimeout(() => {
         event.moveStraight(event.findDirectionTo(data['x'], data['y']));
-      }, i * 10);
+      }, i * 100);
     }
   }
 
@@ -112,6 +112,8 @@
       catch(err){continue;}
     }
     let event_id = class_to_event(data['classType']);
+    data['currentHp'] = data['current_hp'];
+    data['maxHp'] = data['max_hp'];
     Galv.SPAWN.event(event_id, data['x'], data['y'], false, data);
   }
 

@@ -770,20 +770,20 @@
 	Moghunter.ras_buttonWeapon = String(Moghunter.parameters['Attack Button'] || 'ok');
     Moghunter.ras_buttonItem = String(Moghunter.parameters['Item Button'] || 'a');
 	Moghunter.ras_buttonSkill = String(Moghunter.parameters['Skill Button'] || 's');
-	Moghunter.ras_buttonGuard = String(Moghunter.parameters['Shield Button'] || 'd');
+	// Moghunter.ras_buttonGuard = String(Moghunter.parameters['Shield Button'] || 'd');
 	Moghunter.ras_buttonSkillW = String(Moghunter.parameters['Skill Menu Button'] || 'pagedown');
 	Moghunter.ras_buttonItemW = String(Moghunter.parameters['Item Menu Button'] || 'pageup');	
 	Moghunter.ras_buttonDash = String(Moghunter.parameters['Dash Button'] || 'shift');
 	Moghunter.chronoCommandEscapeButton = String(Moghunter.parameters['Escape Button'] || 'shift');
 	
 	Moghunter.ras_comAttack = String(Moghunter.parameters['Attack Command'] || 'true');
-	Moghunter.ras_comShield = String(Moghunter.parameters['Shield Command'] || 'true');
+	// Moghunter.ras_comShield = String(Moghunter.parameters['Shield Command'] || 'true');
 	Moghunter.ras_comSkill = String(Moghunter.parameters['Skill Command'] || 'true');
 	Moghunter.ras_comItem = String(Moghunter.parameters['Item Command'] || 'true');
 	Moghunter.ras_comItemWindow = String(Moghunter.parameters['Item Menu Command'] || 'true');
 	Moghunter.ras_comSkillWindow = String(Moghunter.parameters['Skill Menu Command'] || 'true');
 
-    Moghunter.ras_guardAnimationID = Number(Moghunter.parameters['Shield Animation ID'] || 142); 
+    // Moghunter.ras_guardAnimationID = Number(Moghunter.parameters['Shield Animation ID'] || 142); 
 	Moghunter.ras_castAnimationID = Number(Moghunter.parameters['Cast Animation ID'] || 138);
 	Moghunter.ras_levelAnimationID = Number(Moghunter.parameters['Level UP Animation ID'] || 143)	
     Moghunter.ras_treasureSE = String(Moghunter.parameters['Treasure SE'] || 'Item3');
@@ -1000,7 +1000,7 @@ Game_System.prototype.chronoInitialize = function() {
 	this.clearChronoEscape();
 	this._chronoCom = {};
 	this._chronoCom.attack = String(Moghunter.ras_comAttack) === 'true' ? true : false;
-	this._chronoCom.shield = String(Moghunter.ras_comShield) === 'true' ? true : false;
+	// this._chronoCom.shield = String(Moghunter.ras_comShield) === 'true' ? true : false;
 	this._chronoCom.item = String(Moghunter.ras_comItem) === 'true' ? true : false;
 	this._chronoCom.skill = String(Moghunter.ras_comSkill) === 'true' ? true : false;
 	this._chronoCom.windowSkill = String(Moghunter.ras_comSkillWindow) === 'true' ? true : false;
@@ -1339,7 +1339,7 @@ Game_Actor.prototype.initMembers = function() {
 	this._toolItemActionId = 0;
 	this._toolSkillActionId = 0;
 	this._toolWeaponActionId = 0;
-	this._toolShieldActionId = 0;
+	// this._toolShieldActionId = 0;
 };
 
 //==============================
@@ -1367,7 +1367,8 @@ Game_Actor.prototype.toolWeaponID = function() {
 // * tool Shield ID
 //==============================
 Game_Actor.prototype.toolShieldID = function() {
-    return this._toolShieldActionId;
+    // return this._toolShieldActionId;
+	return;
 };
 
 //==============================
@@ -1459,13 +1460,13 @@ Game_Actor.prototype.getToolActionID = function(item) {
 		 if (note_data[0].toLowerCase() == "tool id"){
 			 actionID = Number(note_data[1]);
 		 }
-		 if (DataManager.isArmor(item)) {
-			 if (note_data[0].toLowerCase() == "shield pose suffix"){
-					this._ras.guard.enabled = true;
-					this._ras.guard.poseSuffix = String(note_data[1]);
+		//  if (DataManager.isArmor(item)) {
+		// 	 if (note_data[0].toLowerCase() == "shield pose suffix"){
+		// 			this._ras.guard.enabled = true;
+		// 			this._ras.guard.poseSuffix = String(note_data[1]);
 					
-			 };
-		 };
+		// 	 };
+		//  };
 	 },this);
 	 return actionID;
 };
@@ -1477,7 +1478,7 @@ Game_Actor.prototype.refreshToolIds = function(item) {
 	this.setToolItemID();
 	this.setToolSkillID();
 	this.setToolWeaponID();
-	this.setToolArmorID();
+	// this.setToolArmorID();
 };
 
 //==============================
@@ -2397,9 +2398,10 @@ Game_CharacterBase.prototype.canMoveABS = function() {
 // * is Guarding
 //==============================
 Game_CharacterBase.prototype.isGuarding = function() {
-	if (!this.battler()) {return false};
-	if (this._tool.enabled) {return false};
-    return this.battler()._ras.guard.active;
+	return false;
+	// if (!this.battler()) {return false};
+	// if (this._tool.enabled) {return false};
+    // return this.battler()._ras.guard.active;
 };
 
 //==============================
@@ -5532,11 +5534,12 @@ ToolEvent.prototype.payCost = function() {
 ToolEvent.prototype.payCostCoop = function(type) {
    for (var i = 0; i < this._coopMembers.length; i++) {
 	    var battler = this._coopMembers[i].battler();
-		if (type === 0) {
-		    battler._mp -= this._payCost.mp;
-		} else if (type === 1) {
-			battler._tp -= this._payCost.tp;
-	    };
+		battler._mp -= this._payCost.mp;
+		// if (type === 0) {
+		//     battler._mp -= this._payCost.mp;
+		// } else if (type === 1) {
+		// 	battler._tp -= this._payCost.tp;
+	    // };
    };
 };
 
@@ -5564,13 +5567,14 @@ ToolEvent.prototype.payMPCost = function() {
 // * Pay TP Cost
 //==============================
 ToolEvent.prototype.payTPCost = function() {
-	if (this._coopMembers.length > 0) {this.payCostCoop(1);return};
-    if (this.user().battler()) {
-		this.user().battler()._tp -= this._payCost.tp;
-	} else {
-		var actor = $gameParty.leader();
-        if (actor) {actor._tp -= this._payCost.tp};
-    };
+	// if (this._coopMembers.length > 0) {this.payCostCoop(1);return};
+    // if (this.user().battler()) {
+	// 	this.user().battler()._tp -= this._payCost.tp;
+	// } else {
+	// 	var actor = $gameParty.leader();
+    //     if (actor) {actor._tp -= this._payCost.tp};
+    // };
+	return;
 };
 
 //==============================
@@ -5626,19 +5630,20 @@ ToolEvent.prototype.canPayMPCost = function() {
 // * Can Pay TP Cost
 //==============================
 ToolEvent.prototype.canPayTPCost = function() {
-	var skillCost = this._tool.tpCost;
-	if (!skillCost || skillCost <= 0) {return true};	
-	if (this.user().battler()) {
-		if (this.user().battler()._tp < skillCost) {return false};
-		this._payCost.tp = skillCost;
-		return true;
-	};
-	if (this.user()._user.isEvent) {return true};
-	var actor = $gameParty.leader();
-	if (!actor) {return false};
-	if (actor._tp < skillCost) {return false};
-	this._payCost.tp = skillCost;
 	return true;
+	// var skillCost = this._tool.tpCost;
+	// if (!skillCost || skillCost <= 0) {return true};	
+	// if (this.user().battler()) {
+	// 	if (this.user().battler()._tp < skillCost) {return false};
+	// 	this._payCost.tp = skillCost;
+	// 	return true;
+	// };
+	// if (this.user()._user.isEvent) {return true};
+	// var actor = $gameParty.leader();
+	// if (!actor) {return false};
+	// if (actor._tp < skillCost) {return false};
+	// this._payCost.tp = skillCost;
+	// return true;
 };
 
 //==============================

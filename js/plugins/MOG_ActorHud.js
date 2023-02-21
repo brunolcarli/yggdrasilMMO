@@ -526,16 +526,16 @@
 	Moghunter.ahud_mp_icon_zoomAnime = String(Moghunter.parameters['MP Icon Zoom Anime'] || 'true');	
 
 	// TP ICON POSITION
-	Moghunter.ahud_tp_icon_visible = String(Moghunter.parameters['TP Icon Visible'] || 'false');
-	Moghunter.ahud_tp_icon_halfMode = String(Moghunter.parameters['TP Icon Half Mode'] || 'false');	
-	Moghunter.ahud_tp_icon_colorMax = Number(Moghunter.parameters['TP Icon Max Colors'] || 2);	 
-	Moghunter.ahud_tp_icon_rows = Number(Moghunter.parameters['TP Icon Max Rows'] || 10);
-	Moghunter.ahud_tp_icon_cols = Number(Moghunter.parameters['TP Icon Max Columns'] || 2);	
-	Moghunter.ahud_tp_icon_pos_x = Number(Moghunter.parameters['TP Icon X-Axis'] || 143);
-	Moghunter.ahud_tp_icon_pos_y = Number(Moghunter.parameters['TP Icon Y-Axis'] || 50);	
-	Moghunter.ahud_tp_icon_space_x = Number(Moghunter.parameters['TP Icon Space X'] || 0);
-	Moghunter.ahud_tp_icon_space_y = Number(Moghunter.parameters['TP Icon Space Y'] || 0);	
-	Moghunter.ahud_tp_icon_zoomAnime = String(Moghunter.parameters['TP Icon Zoom Anime'] || 'true');	
+	// Moghunter.ahud_tp_icon_visible = String(Moghunter.parameters['TP Icon Visible'] || 'false');
+	// Moghunter.ahud_tp_icon_halfMode = String(Moghunter.parameters['TP Icon Half Mode'] || 'false');	
+	// Moghunter.ahud_tp_icon_colorMax = Number(Moghunter.parameters['TP Icon Max Colors'] || 2);	 
+	// Moghunter.ahud_tp_icon_rows = Number(Moghunter.parameters['TP Icon Max Rows'] || 10);
+	// Moghunter.ahud_tp_icon_cols = Number(Moghunter.parameters['TP Icon Max Columns'] || 2);	
+	// Moghunter.ahud_tp_icon_pos_x = Number(Moghunter.parameters['TP Icon X-Axis'] || 143);
+	// Moghunter.ahud_tp_icon_pos_y = Number(Moghunter.parameters['TP Icon Y-Axis'] || 50);	
+	// Moghunter.ahud_tp_icon_space_x = Number(Moghunter.parameters['TP Icon Space X'] || 0);
+	// Moghunter.ahud_tp_icon_space_y = Number(Moghunter.parameters['TP Icon Space Y'] || 0);	
+	// Moghunter.ahud_tp_icon_zoomAnime = String(Moghunter.parameters['TP Icon Zoom Anime'] || 'true');	
 	
 	// HP METER POSITION
 	Moghunter.ahud_hp_meter_visible = String(Moghunter.parameters['HP Meter Visible'] || true);
@@ -570,20 +570,20 @@
 	Moghunter.ahud_maxmp_number_pos_y  = Number(Moghunter.parameters['MaxMP Number Y-Axis'] || 78);	
 
 	// TP METER POSITION
-	Moghunter.ahud_tp_meter_visible = String(Moghunter.parameters['TP Meter Visible'] || true);
-	Moghunter.ahud_tp_meter_pos_x = Number(Moghunter.parameters['TP Meter X-Axis'] || 143);
-	Moghunter.ahud_tp_meter_pos_y = Number(Moghunter.parameters['TP Meter Y-Axis'] || 145);	
-	Moghunter.ahud_tp_meter_rotation = Number(Moghunter.parameters['TP Meter Angle'] || 0);
-	Moghunter.ahud_tp_meter_flow = String(Moghunter.parameters['TP Meter Flow Anime'] || false);
+	// Moghunter.ahud_tp_meter_visible = String(Moghunter.parameters['TP Meter Visible'] || true);
+	// Moghunter.ahud_tp_meter_pos_x = Number(Moghunter.parameters['TP Meter X-Axis'] || 143);
+	// Moghunter.ahud_tp_meter_pos_y = Number(Moghunter.parameters['TP Meter Y-Axis'] || 145);	
+	// Moghunter.ahud_tp_meter_rotation = Number(Moghunter.parameters['TP Meter Angle'] || 0);
+	// Moghunter.ahud_tp_meter_flow = String(Moghunter.parameters['TP Meter Flow Anime'] || false);
 	
 	// TP NUMBER POSITION
-	Moghunter.ahud_tp_number_visible  = String(Moghunter.parameters['TP Number Visible'] || true);
-	Moghunter.ahud_tp_number_align  = Number(Moghunter.parameters['TP Number Align'] || 0);	
-	Moghunter.ahud_tp_number_pos_x  = Number(Moghunter.parameters['TP Number X-Axis'] || 270);
-	Moghunter.ahud_tp_number_pos_y  = Number(Moghunter.parameters['TP Number Y-Axis'] || 130);
-	Moghunter.ahud_maxtp_number_visible  = String(Moghunter.parameters['MaxTP Number Visible'] || false);
-	Moghunter.ahud_maxtp_number_pos_x  = Number(Moghunter.parameters['MaxTP Number X-Axis'] || 185);
-	Moghunter.ahud_maxtp_number_pos_y  = Number(Moghunter.parameters['MaxTP Number Y-Axis'] || 116);	
+	// Moghunter.ahud_tp_number_visible  = String(Moghunter.parameters['TP Number Visible'] || true);
+	// Moghunter.ahud_tp_number_align  = Number(Moghunter.parameters['TP Number Align'] || 0);	
+	// Moghunter.ahud_tp_number_pos_x  = Number(Moghunter.parameters['TP Number X-Axis'] || 270);
+	// Moghunter.ahud_tp_number_pos_y  = Number(Moghunter.parameters['TP Number Y-Axis'] || 130);
+	// Moghunter.ahud_maxtp_number_visible  = String(Moghunter.parameters['MaxTP Number Visible'] || false);
+	// Moghunter.ahud_maxtp_number_pos_x  = Number(Moghunter.parameters['MaxTP Number X-Axis'] || 185);
+	// Moghunter.ahud_maxtp_number_pos_y  = Number(Moghunter.parameters['MaxTP Number Y-Axis'] || 116);	
 
 	// Level NUMBER POSITION
 	Moghunter.ahud_level_number_visible  = String(Moghunter.parameters['Level Number Visible'] || true);
@@ -775,18 +775,18 @@ Actor_Hud.prototype.load_img = function() {
 	this._state_img = ImageManager.loadSystem("IconSet");
 	if (String(Moghunter.ahud_hp_meter_visible) == "true") {this._hp_meter_img = ImageManager.loadAHud("HP_Meter")};
 	if (String(Moghunter.ahud_mp_meter_visible) == "true") {this._mp_meter_img = ImageManager.loadAHud("MP_Meter")};
-	if (String(Moghunter.ahud_tp_meter_visible) == "true") {this._tp_meter_img = ImageManager.loadAHud("TP_Meter")};	
+	// if (String(Moghunter.ahud_tp_meter_visible) == "true") {this._tp_meter_img = ImageManager.loadAHud("TP_Meter")};	
 	if (String(Moghunter.ahud_hp_icon_visible) == "true") {this._hp_icon_img = ImageManager.loadAHud("HP_Icon")};
 	if (String(Moghunter.ahud_mp_icon_visible) == "true") {this._mp_icon_img = ImageManager.loadAHud("MP_Icon")};
-	if (String(Moghunter.ahud_tp_icon_visible) == "true") {this._tp_icon_img = ImageManager.loadAHud("TP_Icon")};	
+	// if (String(Moghunter.ahud_tp_icon_visible) == "true") {this._tp_icon_img = ImageManager.loadAHud("TP_Icon")};	
 	if (String(Moghunter.ahud_exp_meter_visible) == "true") {this._exp_meter_img = ImageManager.loadAHud("EXP_Meter")};
 	if (String(Moghunter.ahud_hp_number_visible) == "true") {this._hp_number_img = ImageManager.loadAHud("HP_Number")};
 	if (String(Moghunter.ahud_mp_number_visible) == "true") {this._mp_number_img = ImageManager.loadAHud("MP_Number")};
-	if (String(Moghunter.ahud_tp_number_visible) == "true") {this._tp_number_img = ImageManager.loadAHud("TP_Number")};
+	// if (String(Moghunter.ahud_tp_number_visible) == "true") {this._tp_number_img = ImageManager.loadAHud("TP_Number")};
 	if (String(Moghunter.ahud_level_number_visible) == "true") {this._level_number_img = ImageManager.loadAHud("LV_Number")};
 	if (String(Moghunter.ahud_maxhp_number_visible) == "true") {this._maxhp_number_img = ImageManager.loadAHud("HP_Number2")};
 	if (String(Moghunter.ahud_maxmp_number_visible) == "true") {this._maxmp_number_img = ImageManager.loadAHud("MP_Number2")};
-	if (String(Moghunter.ahud_maxtp_number_visible) == "true") {this._maxtp_number_img = ImageManager.loadAHud("TP_Number2")};	
+	// if (String(Moghunter.ahud_maxtp_number_visible) == "true") {this._maxtp_number_img = ImageManager.loadAHud("TP_Number2")};	
 };
 
 //==============================
@@ -801,10 +801,10 @@ Actor_Hud.prototype.base_parameter_clear = function() {
 	 this._maxmp_old = [-1,-1];
 	 this._mp_old_ani = [-1,-1];
 	 this._mp_flow = [false,0,0,0];
-	 this._tp_old = [-1,-1];
-	 this._maxtp_old = [-1,-1];
-	 this._tp_old_ani = -1;
-	 this._tp_flow = [false,0,0,0];
+	//  this._tp_old = [-1,-1];
+	//  this._maxtp_old = [-1,-1];
+	//  this._tp_old_ani = -1;
+	//  this._tp_flow = [false,0,0,0];
 	 this._exp_old = [-1,-1];
 	 this._exp_flow = [false,0,0,0];	
 	 this._hp_number_old = -1;
@@ -812,10 +812,10 @@ Actor_Hud.prototype.base_parameter_clear = function() {
 	 this._hp_number_old = -1;	 
 	 this._hp_icon_old = [-1,-1];
 	 this._mp_icon_old = [-1,-1];
-	 this._tp_icon_old = [-1,-1];
+	//  this._tp_icon_old = [-1,-1];
 	 this._hp_img_data = [0,0,0];
 	 this._mp_img_data = [0,0,0];
-	 this._tp_img_data = [0,0,0];
+	//  this._tp_img_data = [0,0,0];
 	 this._states_old = [];
 	 this._states_data = [0,0,0];
 	 this._active = false;
@@ -901,18 +901,18 @@ Actor_Hud.prototype.create_base_sprites = function() {
 Actor_Hud.prototype.create_sprites = function() {
 	this.create_hp_meter();
 	this.create_mp_meter();
-    this.create_tp_meter();
+    // this.create_tp_meter();
 	this.create_hp_icon();
 	this.create_mp_icon();
-    this.create_tp_icon();
+    // this.create_tp_icon();
 	this.create_exp_meter();
 	this.create_hp_number();	
 	this.create_maxhp_number();
 	this.create_mp_number();	
     this.create_maxmp_number();
- 	this.create_tp_number();
+ 	// this.create_tp_number();
 	this.create_level_number();
-	this.create_maxtp_number();
+	// this.create_maxtp_number();
     this.create_states();	
 	this.create_name();
 };
@@ -925,7 +925,7 @@ Actor_Hud.prototype.update_sprites = function() {
 	this.update_face();	
     this.update_hp();
 	this.update_mp();
-    this.update_tp();
+    // this.update_tp();
     this.update_states();
 	this.update_exp();
 };
@@ -1047,8 +1047,8 @@ Actor_Hud.prototype.need_refresh_parameter = function(parameter) {
 		 if (this._mp_old[1] != this._battler.mmp) {return true};
          break;			
   	case 2:
-         if (this._tp_old[0] != this._battler.tp) {return true};		 
-		 if (this._tp_old[1] != this._battler.maxTp()) {return true};
+        //  if (this._tp_old[0] != this._battler.tp) {return true};		 
+		//  if (this._tp_old[1] != this._battler.maxTp()) {return true};
          break;	
   	case 3:
          if (this._exp_old != this._battler.currentExp()) {return true};
@@ -1312,55 +1312,56 @@ Actor_Hud.prototype.create_mp_icon = function() {
 // * Create TP icon
 //==============================
 Actor_Hud.prototype.create_tp_icon = function() {
-   if (String(Moghunter.ahud_tp_icon_visible) != "true") {return};
-	if (this._tp_icons) {
-	    for (var i = 0; i < this._tp_icons.length; i++) {
-			this.removeChild(this._tp_icons[i]);
-	    };
-	    for (var i = 0; i < this._tp_iconsB.length; i++) {
-			this.removeChild(this._tp_iconsB[i]);
-	    };
-	};	
-	if (!this._battler) {return};	
-	var n_icons = Moghunter.ahud_tp_icon_rows * Moghunter.ahud_tp_icon_cols;
-	this._tp_icons = [];
-	this._tp_icons.iconMode = String(Moghunter.ahud_tp_icon_halfMode) == "true" ? true : false;
-	this._tp_iconsB = [];
-	this._tp_iconsB.iconMode = this._tp_icons.iconMode;
-	this._tp_IconZoomAnime = String(Moghunter.ahud_tp_icon_zoomAnime) == "true" ? true : false;
-	var colors = Math.max(Moghunter.ahud_tp_icon_colorMax, 2);
-	var cw = this._tp_icon_img.width / colors;
-	var ch = this._tp_icon_img.height / 2;
-	for (var i = 0; i < n_icons; i++) {
-		 this._tp_iconsB[i] = new Sprite(this._tp_icon_img);
-		 this._tp_iconsB[i].colorMax = colors;
-		 this._tp_iconsB[i].anchor.x = 0.5;
-		 this._tp_iconsB[i].anchor.y = 0.5;
-		 this._tp_iconsB[i].rows = Moghunter.ahud_tp_icon_rows;
-		 this._tp_iconsB[i].cols = Moghunter.ahud_tp_icon_cols;
-		 this._tp_iconsB[i].org = [this._pos_x + Moghunter.ahud_tp_icon_pos_x - cw,this._pos_y + Moghunter.ahud_tp_icon_pos_y - ch];
-		 this._tp_iconsB[i].spc = [Moghunter.ahud_tp_icon_space_x,Moghunter.ahud_tp_icon_space_y];
-		 this._tp_iconsB[i].zoomA = this._tp_IconZoomAnime;
-		 this._tp_iconsB[i].zoomData = [0,0,0,1.00];
-		 this._tp_iconsB[i].visible = false;
-		 this._tp_iconsB[i].enabled = false;
-		 this.addChild(this._tp_iconsB[i]);
-	};		
-	for (var i = 0; i < n_icons; i++) {
-		 this._tp_icons[i] = new Sprite(this._tp_icon_img);
-		 this._tp_icons[i].colorMax = Math.max(Moghunter.ahud_tp_icon_colorMax, 2);
-		 this._tp_icons[i].anchor.x = 0.5;
-		 this._tp_icons[i].anchor.y = 0.5;		 
-		 this._tp_icons[i].rows = Moghunter.ahud_tp_icon_rows;
-		 this._tp_icons[i].cols = Moghunter.ahud_tp_icon_cols;
-		 this._tp_icons[i].org = [this._pos_x + Moghunter.ahud_tp_icon_pos_x - cw,this._pos_y + Moghunter.ahud_tp_icon_pos_y - ch];
-		 this._tp_icons[i].spc = [Moghunter.ahud_tp_icon_space_x,Moghunter.ahud_tp_icon_space_y];
-		 this._tp_icons[i].zoomA = this._tp_IconZoomAnime;
-		 this._tp_icons[i].zoomData = [0,0,0,1.00];	 
-		 this._tp_icons[i].visible = false;
-		 this._tp_icons[i].enabled = false;
-		 this.addChild(this._tp_icons[i]);
-	};		
+	return;
+//    if (String(Moghunter.ahud_tp_icon_visible) != "true") {return};
+// 	if (this._tp_icons) {
+// 	    for (var i = 0; i < this._tp_icons.length; i++) {
+// 			this.removeChild(this._tp_icons[i]);
+// 	    };
+// 	    for (var i = 0; i < this._tp_iconsB.length; i++) {
+// 			this.removeChild(this._tp_iconsB[i]);
+// 	    };
+// 	};	
+// 	if (!this._battler) {return};	
+// 	var n_icons = Moghunter.ahud_tp_icon_rows * Moghunter.ahud_tp_icon_cols;
+// 	this._tp_icons = [];
+// 	this._tp_icons.iconMode = String(Moghunter.ahud_tp_icon_halfMode) == "true" ? true : false;
+// 	this._tp_iconsB = [];
+// 	this._tp_iconsB.iconMode = this._tp_icons.iconMode;
+// 	this._tp_IconZoomAnime = String(Moghunter.ahud_tp_icon_zoomAnime) == "true" ? true : false;
+// 	var colors = Math.max(Moghunter.ahud_tp_icon_colorMax, 2);
+// 	var cw = this._tp_icon_img.width / colors;
+// 	var ch = this._tp_icon_img.height / 2;
+// 	for (var i = 0; i < n_icons; i++) {
+// 		 this._tp_iconsB[i] = new Sprite(this._tp_icon_img);
+// 		 this._tp_iconsB[i].colorMax = colors;
+// 		 this._tp_iconsB[i].anchor.x = 0.5;
+// 		 this._tp_iconsB[i].anchor.y = 0.5;
+// 		 this._tp_iconsB[i].rows = Moghunter.ahud_tp_icon_rows;
+// 		 this._tp_iconsB[i].cols = Moghunter.ahud_tp_icon_cols;
+// 		 this._tp_iconsB[i].org = [this._pos_x + Moghunter.ahud_tp_icon_pos_x - cw,this._pos_y + Moghunter.ahud_tp_icon_pos_y - ch];
+// 		 this._tp_iconsB[i].spc = [Moghunter.ahud_tp_icon_space_x,Moghunter.ahud_tp_icon_space_y];
+// 		 this._tp_iconsB[i].zoomA = this._tp_IconZoomAnime;
+// 		 this._tp_iconsB[i].zoomData = [0,0,0,1.00];
+// 		 this._tp_iconsB[i].visible = false;
+// 		 this._tp_iconsB[i].enabled = false;
+// 		 this.addChild(this._tp_iconsB[i]);
+// 	};		
+// 	for (var i = 0; i < n_icons; i++) {
+// 		 this._tp_icons[i] = new Sprite(this._tp_icon_img);
+// 		 this._tp_icons[i].colorMax = Math.max(Moghunter.ahud_tp_icon_colorMax, 2);
+// 		 this._tp_icons[i].anchor.x = 0.5;
+// 		 this._tp_icons[i].anchor.y = 0.5;		 
+// 		 this._tp_icons[i].rows = Moghunter.ahud_tp_icon_rows;
+// 		 this._tp_icons[i].cols = Moghunter.ahud_tp_icon_cols;
+// 		 this._tp_icons[i].org = [this._pos_x + Moghunter.ahud_tp_icon_pos_x - cw,this._pos_y + Moghunter.ahud_tp_icon_pos_y - ch];
+// 		 this._tp_icons[i].spc = [Moghunter.ahud_tp_icon_space_x,Moghunter.ahud_tp_icon_space_y];
+// 		 this._tp_icons[i].zoomA = this._tp_IconZoomAnime;
+// 		 this._tp_icons[i].zoomData = [0,0,0,1.00];	 
+// 		 this._tp_icons[i].visible = false;
+// 		 this._tp_icons[i].enabled = false;
+// 		 this.addChild(this._tp_icons[i]);
+// 	};		
 };
 
 
@@ -1807,124 +1808,128 @@ Actor_Hud.prototype.update_mp = function() {
 // * Create TP Meter
 //==============================
 Actor_Hud.prototype.create_tp_meter = function() {
-	if (String(Moghunter.ahud_tp_meter_visible) != "true") {return};
-	this.removeChild(this._tp_meter_blue);
-	this.removeChild(this._tp_meter_red);
-	if (!this._battler) {return};
-	this._tp_meter_red = new Sprite(this._tp_meter_img);
-	this._tp_meter_red.x = this._pos_x + Moghunter.ahud_tp_meter_pos_x;
-	this._tp_meter_red.y = this._pos_y + Moghunter.ahud_tp_meter_pos_y;
-	this._tp_meter_red.rotation = Moghunter.ahud_tp_meter_rotation * Math.PI / 180;
-	this._tp_meter_red.setFrame(0,0,0,0);
-	this.addChild(this._tp_meter_red);		
-	this._tp_meter_blue = new Sprite(this._tp_meter_img);
-	this._tp_meter_blue.x = this._tp_meter_red.x;
-	this._tp_meter_blue.y = this._tp_meter_red.y;
-	this._tp_meter_blue.rotation = this._tp_meter_red.rotation * Math.PI / 180;
-	this._tp_meter_blue.setFrame(0,0,0,0);
-	this.addChild(this._tp_meter_blue);
-	this._tp_old_ani[0] = this._battler.tp - 1;
-	if (String(Moghunter.ahud_tp_meter_flow) === "true") {this._tp_flow[0] = true;
-	    this._tp_flow[2] = this._tp_meter_img.width / 3;
-		this._tp_flow[3] = this._tp_flow[2] * 2;
-		this._tp_flow[1] = Math.floor(Math.random() * this._tp_flow[2]);
-	};
+	return;
+	// if (String(Moghunter.ahud_tp_meter_visible) != "true") {return};
+	// this.removeChild(this._tp_meter_blue);
+	// this.removeChild(this._tp_meter_red);
+	// if (!this._battler) {return};
+	// this._tp_meter_red = new Sprite(this._tp_meter_img);
+	// this._tp_meter_red.x = this._pos_x + Moghunter.ahud_tp_meter_pos_x;
+	// this._tp_meter_red.y = this._pos_y + Moghunter.ahud_tp_meter_pos_y;
+	// this._tp_meter_red.rotation = Moghunter.ahud_tp_meter_rotation * Math.PI / 180;
+	// this._tp_meter_red.setFrame(0,0,0,0);
+	// this.addChild(this._tp_meter_red);		
+	// this._tp_meter_blue = new Sprite(this._tp_meter_img);
+	// this._tp_meter_blue.x = this._tp_meter_red.x;
+	// this._tp_meter_blue.y = this._tp_meter_red.y;
+	// this._tp_meter_blue.rotation = this._tp_meter_red.rotation * Math.PI / 180;
+	// this._tp_meter_blue.setFrame(0,0,0,0);
+	// this.addChild(this._tp_meter_blue);
+	// this._tp_old_ani[0] = this._battler.tp - 1;
+	// if (String(Moghunter.ahud_tp_meter_flow) === "true") {this._tp_flow[0] = true;
+	//     this._tp_flow[2] = this._tp_meter_img.width / 3;
+	// 	this._tp_flow[3] = this._tp_flow[2] * 2;
+	// 	this._tp_flow[1] = Math.floor(Math.random() * this._tp_flow[2]);
+	// };
 };
 
 //==============================
 // * Create TP Number
 //==============================
 Actor_Hud.prototype.create_tp_number = function() {
-	if (String(Moghunter.ahud_tp_number_visible) != "true") {return};
-	if (this._tp_number) {for (var i = 0; i < this._tp_number.length; i++) {this.removeChild(this._tp_number[i]);}};
-	if (!this._battler) {return};
-	this._tp_number = [];
-	this._tp_number.align = Number(Moghunter.ahud_tp_number_align);
-	this._tp_img_data = [this._tp_number_img.width,this._tp_number_img.height,
-	                      this._tp_number_img.width / 10, this._tp_number_img.height / 2,
-						  this._pos_x + Moghunter.ahud_tp_number_pos_x,
-						  this._pos_y + Moghunter.ahud_tp_number_pos_y,
-						  ];
-	for (var i = 0; i < 5; i++) {
-	   this._tp_number[i] = new Sprite(this._tp_number_img);
-	   this._tp_number[i].visible = false;
-	   this._tp_number[i].x = this._tp_img_data[4];
-	   this._tp_number[i].y = this._tp_img_data[5] ;
-	   this.addChild(this._tp_number[i]);
-	};	
-	this._tp_number_old = this._battler.tp;
-	this.refresh_number(this._tp_number,this._tp_number_old,this._tp_img_data,this._tp_img_data[4],0);	
+	return;
+	// if (String(Moghunter.ahud_tp_number_visible) != "true") {return};
+	// if (this._tp_number) {for (var i = 0; i < this._tp_number.length; i++) {this.removeChild(this._tp_number[i]);}};
+	// if (!this._battler) {return};
+	// this._tp_number = [];
+	// this._tp_number.align = Number(Moghunter.ahud_tp_number_align);
+	// this._tp_img_data = [this._tp_number_img.width,this._tp_number_img.height,
+	//                       this._tp_number_img.width / 10, this._tp_number_img.height / 2,
+	// 					  this._pos_x + Moghunter.ahud_tp_number_pos_x,
+	// 					  this._pos_y + Moghunter.ahud_tp_number_pos_y,
+	// 					  ];
+	// for (var i = 0; i < 5; i++) {
+	//    this._tp_number[i] = new Sprite(this._tp_number_img);
+	//    this._tp_number[i].visible = false;
+	//    this._tp_number[i].x = this._tp_img_data[4];
+	//    this._tp_number[i].y = this._tp_img_data[5] ;
+	//    this.addChild(this._tp_number[i]);
+	// };	
+	// this._tp_number_old = this._battler.tp;
+	// this.refresh_number(this._tp_number,this._tp_number_old,this._tp_img_data,this._tp_img_data[4],0);	
 };
 
 //==============================
 // * Create MaxTP Number
 //==============================
 Actor_Hud.prototype.create_maxtp_number = function() {
-	if (String(Moghunter.ahud_maxtp_number_visible) != "true") {return};
-	if (this._maxtp_number) {for (var i = 0; i < this._maxtp_number.length; i++) {this.removeChild(this._maxtp_number[i]);}};
-	if (!this._battler) {return};
-	this._maxtp_number = [];
-	this._maxtp_number.align = Number(Moghunter.ahud_tp_number_align);
-	this._maxtp_img_data = [this._maxtp_number_img.width,this._maxtp_number_img.height,
-	                      this._maxtp_number_img.width / 10, this._maxtp_number_img.height / 2,
-						  this._pos_x + Moghunter.ahud_maxtp_number_pos_x,
-						  this._pos_y + Moghunter.ahud_maxtp_number_pos_y,
-						  ];
-	for (var i = 0; i < 5; i++) {
-	   this._maxtp_number[i] = new Sprite(this._maxtp_number_img);
-	   this._maxtp_number[i].visible = false;
-	   this._maxtp_number[i].x = this._maxtp_img_data[4];
-	   this._maxtp_number[i].y = this._maxtp_img_data[5] ;
-	   this.addChild(this._maxtp_number[i]);
-	};	
-	this._maxtp_number_old = 100;
-	this.refresh_number(this._maxtp_number,this._maxtp_number_old,this._maxtp_img_data,this._maxtp_img_data[4],0);	
+	return;
+	// if (String(Moghunter.ahud_maxtp_number_visible) != "true") {return};
+	// if (this._maxtp_number) {for (var i = 0; i < this._maxtp_number.length; i++) {this.removeChild(this._maxtp_number[i]);}};
+	// if (!this._battler) {return};
+	// this._maxtp_number = [];
+	// this._maxtp_number.align = Number(Moghunter.ahud_tp_number_align);
+	// this._maxtp_img_data = [this._maxtp_number_img.width,this._maxtp_number_img.height,
+	//                       this._maxtp_number_img.width / 10, this._maxtp_number_img.height / 2,
+	// 					  this._pos_x + Moghunter.ahud_maxtp_number_pos_x,
+	// 					  this._pos_y + Moghunter.ahud_maxtp_number_pos_y,
+	// 					  ];
+	// for (var i = 0; i < 5; i++) {
+	//    this._maxtp_number[i] = new Sprite(this._maxtp_number_img);
+	//    this._maxtp_number[i].visible = false;
+	//    this._maxtp_number[i].x = this._maxtp_img_data[4];
+	//    this._maxtp_number[i].y = this._maxtp_img_data[5] ;
+	//    this.addChild(this._maxtp_number[i]);
+	// };	
+	// this._maxtp_number_old = 100;
+	// this.refresh_number(this._maxtp_number,this._maxtp_number_old,this._maxtp_img_data,this._maxtp_img_data[4],0);	
 };
 
 //==============================
 // * Update TP
 //==============================
 Actor_Hud.prototype.update_tp = function() {
-	if (this._tp_meter_blue) {
-		this._tp_meter_blue.opacity += 15;
-		this._tp_meter_red.opacity += 15;
-		if(this._tp_flow[0]) {
-		   if (this._tp_old[1] != this._battler.maxTp()) {
-		       this._tp_old = [this._battler.tp,this._battler.maxTp()];
-			   this.refresh_meter_flow(this._tp_meter_red,this._battler.tp,this._battler.maxTp(),1,this._tp_flow[1]);
-		   };				
-		   this.refresh_meter_flow(this._tp_meter_blue,this._battler.tp,this._battler.maxTp(),0,this._tp_flow[1]);
-	   	   var dif_meter = this.update_dif(this._tp_old_ani[0],this._battler.tp,160)
-		   if (this._tp_old_ani[0] != dif_meter) {this._tp_old_ani[0] = dif_meter;
-	       this.refresh_meter_flow(this._tp_meter_red,this._tp_old_ani[0],this._battler.maxTp(),1,this._tp_flow[1]);
-		   };
-		   this._tp_flow[1] += 2;
-		   if (this._tp_flow[1] > this._tp_flow[3]) {this._tp_flow[1] = 0};		   
-   	    }
-		else {	
-			if (this.need_refresh_parameter(2)) {
-				this.refresh_meter(this._tp_meter_blue,this._battler.tp,this._battler.maxTp(),0,2,0);
-				this._tp_old = [this._battler.tp,this._battler.maxTp()];
-			};
-			var dif_meter = this.update_dif(this._tp_old_ani[0],this._battler.tp,160)
-			if (this._tp_old_ani[0] != dif_meter) {this._tp_old_ani[0] = dif_meter;
-			this.refresh_meter(this._tp_meter_red,this._tp_old_ani[0],this._battler.maxTp(),1,2,0);};
-	};
-    };
-	if (this._tp_number) {
-		var dif_number = this.update_dif(this._tp_number_old,this._battler.tp,30)
-		if (this._tp_number_old != dif_number) {this._tp_number_old = dif_number;
-		this.refresh_number(this._tp_number,this._tp_number_old,this._tp_img_data,this._tp_img_data[4],0);};
-	};
-	if (this._tp_icons) {
-		if (this._tp_icon_old[0] != this._battler.tp || this._tp_icon_old[1] != this._battler.maxTp()) {
-		    this._tp_icon_old[0] = this._battler.tp;
-			this._tp_icon_old[1] = this._battler.maxTp();
-			this.refresh_icons(this._tp_iconsB,this._tp_icon_img,this._battler.tp,this._battler.maxTp(),0);
-	        this.refresh_icons(this._tp_icons,this._tp_icon_img,this._battler.tp,this._battler.maxTp(),1);
-		};
-		if (this._tp_IconZoomAnime) {this.updateIconZoomAnime(this._tp_icons)};
-    };	
+	return;
+	// if (this._tp_meter_blue) {
+	// 	this._tp_meter_blue.opacity += 15;
+	// 	this._tp_meter_red.opacity += 15;
+	// 	if(this._tp_flow[0]) {
+	// 	   if (this._tp_old[1] != this._battler.maxTp()) {
+	// 	       this._tp_old = [this._battler.tp,this._battler.maxTp()];
+	// 		   this.refresh_meter_flow(this._tp_meter_red,this._battler.tp,this._battler.maxTp(),1,this._tp_flow[1]);
+	// 	   };				
+	// 	   this.refresh_meter_flow(this._tp_meter_blue,this._battler.tp,this._battler.maxTp(),0,this._tp_flow[1]);
+	//    	   var dif_meter = this.update_dif(this._tp_old_ani[0],this._battler.tp,160)
+	// 	   if (this._tp_old_ani[0] != dif_meter) {this._tp_old_ani[0] = dif_meter;
+	//        this.refresh_meter_flow(this._tp_meter_red,this._tp_old_ani[0],this._battler.maxTp(),1,this._tp_flow[1]);
+	// 	   };
+	// 	   this._tp_flow[1] += 2;
+	// 	   if (this._tp_flow[1] > this._tp_flow[3]) {this._tp_flow[1] = 0};		   
+   	//     }
+	// 	else {	
+	// 		if (this.need_refresh_parameter(2)) {
+	// 			this.refresh_meter(this._tp_meter_blue,this._battler.tp,this._battler.maxTp(),0,2,0);
+	// 			this._tp_old = [this._battler.tp,this._battler.maxTp()];
+	// 		};
+	// 		var dif_meter = this.update_dif(this._tp_old_ani[0],this._battler.tp,160)
+	// 		if (this._tp_old_ani[0] != dif_meter) {this._tp_old_ani[0] = dif_meter;
+	// 		this.refresh_meter(this._tp_meter_red,this._tp_old_ani[0],this._battler.maxTp(),1,2,0);};
+	// };
+    // };
+	// if (this._tp_number) {
+	// 	var dif_number = this.update_dif(this._tp_number_old,this._battler.tp,30)
+	// 	if (this._tp_number_old != dif_number) {this._tp_number_old = dif_number;
+	// 	this.refresh_number(this._tp_number,this._tp_number_old,this._tp_img_data,this._tp_img_data[4],0);};
+	// };
+	// if (this._tp_icons) {
+	// 	if (this._tp_icon_old[0] != this._battler.tp || this._tp_icon_old[1] != this._battler.maxTp()) {
+	// 	    this._tp_icon_old[0] = this._battler.tp;
+	// 		this._tp_icon_old[1] = this._battler.maxTp();
+	// 		this.refresh_icons(this._tp_iconsB,this._tp_icon_img,this._battler.tp,this._battler.maxTp(),0);
+	//         this.refresh_icons(this._tp_icons,this._tp_icon_img,this._battler.tp,this._battler.maxTp(),1);
+	// 	};
+	// 	if (this._tp_IconZoomAnime) {this.updateIconZoomAnime(this._tp_icons)};
+    // };	
 };
 
 

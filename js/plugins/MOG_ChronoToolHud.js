@@ -101,7 +101,7 @@
     Moghunter.toolHud_StartVisible = String(Moghunter.parameters['Hud Start Visible'] || 'true');
 	Moghunter.toolHud_ItemColor = Number(Moghunter.parameters['Hud Item Color'] || 0);
 	Moghunter.toolHud_MpColor = Number(Moghunter.parameters['Hud Mp Color'] || 3);
-	Moghunter.toolHud_TpColor = Number(Moghunter.parameters['Hud Tp Color'] || 5);
+	// Moghunter.toolHud_TpColor = Number(Moghunter.parameters['Hud Tp Color'] || 5);
 	Moghunter.toolHud_IconX = Number(Moghunter.parameters['Hud Icon X-Axis'] || 3);
 	Moghunter.toolHud_IconY = Number(Moghunter.parameters['Hud Icon Y-Axis'] || 19);
 	Moghunter.toolHud_CostX = Number(Moghunter.parameters['Hud Cost Number X-Axis'] || 0);
@@ -113,8 +113,8 @@
 	Moghunter.toolHud_SkillY = Number(Moghunter.parameters['Skill Hud Y-Axis'] || 560);	
 	Moghunter.toolHud_WeaponX = Number(Moghunter.parameters['Weapon Hud X-Axis'] || 434);
 	Moghunter.toolHud_WeaponY = Number(Moghunter.parameters['Weapon Hud Y-Axis'] || 560);
-	Moghunter.toolHud_ShieldX = Number(Moghunter.parameters['Shield Hud X-Axis'] || 480);
-	Moghunter.toolHud_ShieldY = Number(Moghunter.parameters['Shield Hud Y-Axis'] || 560);
+	// Moghunter.toolHud_ShieldX = Number(Moghunter.parameters['Shield Hud X-Axis'] || 480);
+	// Moghunter.toolHud_ShieldY = Number(Moghunter.parameters['Shield Hud Y-Axis'] || 560);
 
 //=============================================================================
 // ** Game System
@@ -375,11 +375,12 @@ ToolHud.prototype.refreshCostItem = function() {
 	     var number = this._costItem.mpCost
 		 this._costItem.mpNumber = this._actor._mp;
 		 if (this._actor._mp < number) {this._itemEnabled = false};
-	} else if (this._costItem.tpNumber) {
-	     var number = this._costItem.tpCos;
-		 this._costItem.tpNumber = this._actor._tp;
-		 if (this._actor._tp < number) {this._itemEnabled = false};
-	};
+	}
+	// else if (this._costItem.tpNumber) {
+	//      var number = this._costItem.tpCos;
+	// 	 this._costItem.tpNumber = this._actor._tp;
+	// 	 if (this._actor._tp < number) {this._itemEnabled = false};
+	// };
 	this._cost.visible = true;
 	this._cost.bitmap.clear();
 	this._cost.bitmap.drawText(number,0,0,this._cost.width,this._cost.height,"center");
@@ -395,9 +396,10 @@ ToolHud.prototype.needRefreshCost = function() {
 		 if (this._costItem.itemNumber != $gameParty.numItems(this._costItem.item)) {return true};
 	} else if (this._costItem.mpNumber) {
 		 if (this._costItem.mpNumber != this._actor._mp) {return true};
-	} else if (this._costItem.tpNumber) {
-	     if (this._costItem.tpNumber != this._actor._tp) {return true};
-	};
+	} 
+	// else if (this._costItem.tpNumber) {
+	//      if (this._costItem.tpNumber != this._actor._tp) {return true};
+	// };
     return false;
 };
 

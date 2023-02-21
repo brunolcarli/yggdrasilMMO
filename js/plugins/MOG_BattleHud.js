@@ -918,22 +918,22 @@
     Moghunter.bhud_mp_align_type  = Number(Moghunter.parameters['MP Number Align type'] || 0);
 	Moghunter.bhud_mp_diagonal_number  = Number(Moghunter.parameters['MP Number Diagonal'] || true);
 	
-	// TP METER POSITION
-	Moghunter.bhud_tp_meter_visible = String(Moghunter.parameters['TP Meter Visible'] || true);
-	Moghunter.bhud_tp_meter_pos_x = Number(Moghunter.parameters['TP Meter X-Axis'] || 104);
-	Moghunter.bhud_tp_meter_pos_y = Number(Moghunter.parameters['TP Meter Y-Axis'] || 69);	
-	Moghunter.bhud_tp_meter_rotation = Number(Moghunter.parameters['TP Meter Angle'] || 0);
-	Moghunter.bhud_tp_meter_flow = String(Moghunter.parameters['TP Meter Flow Anime'] || true);
+	// // TP METER POSITION
+	// Moghunter.bhud_tp_meter_visible = String(Moghunter.parameters['TP Meter Visible'] || true);
+	// Moghunter.bhud_tp_meter_pos_x = Number(Moghunter.parameters['TP Meter X-Axis'] || 104);
+	// Moghunter.bhud_tp_meter_pos_y = Number(Moghunter.parameters['TP Meter Y-Axis'] || 69);	
+	// Moghunter.bhud_tp_meter_rotation = Number(Moghunter.parameters['TP Meter Angle'] || 0);
+	// Moghunter.bhud_tp_meter_flow = String(Moghunter.parameters['TP Meter Flow Anime'] || true);
 	
-	// TP NUMBER POSITION
-	Moghunter.bhud_tp_number_visible  = String(Moghunter.parameters['TP Number Visible'] || true);
-	Moghunter.bhud_tp_number_pos_x  = Number(Moghunter.parameters['TP Number X-Axis'] || 187);
-	Moghunter.bhud_tp_number_pos_y  = Number(Moghunter.parameters['TP Number Y-Axis'] || 53);
-	Moghunter.bhud_maxtp_number_visible  = String(Moghunter.parameters['MaxTP Number Visible'] || false);
-	Moghunter.bhud_maxtp_number_pos_x  = Number(Moghunter.parameters['MaxTP Number X-Axis'] || 185);
-	Moghunter.bhud_maxtp_number_pos_y  = Number(Moghunter.parameters['MaxTP Number Y-Axis'] || 116);	
-    Moghunter.bhud_tp_align_type  = Number(Moghunter.parameters['TP Number Align type'] || 0);
-	Moghunter.bhud_tp_diagonal_number  = Number(Moghunter.parameters['TP Number Diagonal'] || false);
+	// // TP NUMBER POSITION
+	// Moghunter.bhud_tp_number_visible  = String(Moghunter.parameters['TP Number Visible'] || true);
+	// Moghunter.bhud_tp_number_pos_x  = Number(Moghunter.parameters['TP Number X-Axis'] || 187);
+	// Moghunter.bhud_tp_number_pos_y  = Number(Moghunter.parameters['TP Number Y-Axis'] || 53);
+	// Moghunter.bhud_maxtp_number_visible  = String(Moghunter.parameters['MaxTP Number Visible'] || false);
+	// Moghunter.bhud_maxtp_number_pos_x  = Number(Moghunter.parameters['MaxTP Number X-Axis'] || 185);
+	// Moghunter.bhud_maxtp_number_pos_y  = Number(Moghunter.parameters['MaxTP Number Y-Axis'] || 116);	
+    // Moghunter.bhud_tp_align_type  = Number(Moghunter.parameters['TP Number Align type'] || 0);
+	// Moghunter.bhud_tp_diagonal_number  = Number(Moghunter.parameters['TP Number Diagonal'] || false);
 	
     // AT METER POSITION
 	Moghunter.bhud_at_meter_visible = String(Moghunter.parameters['ATB Meter Visible'] || true);
@@ -2102,14 +2102,14 @@ Battle_Hud.prototype.load_img = function() {
 	this._state_img = ImageManager.loadSystem("IconSet");
 	if (String(Moghunter.bhud_hp_meter_visible) == "true") {this._hp_meter_img = ImageManager.loadBHud("HP_Meter");};
 	if (String(Moghunter.bhud_mp_meter_visible) == "true") {this._mp_meter_img = ImageManager.loadBHud("MP_Meter");};
-	if (String(Moghunter.bhud_tp_meter_visible) == "true") {this._tp_meter_img = ImageManager.loadBHud("TP_Meter");};
+	// if (String(Moghunter.bhud_tp_meter_visible) == "true") {this._tp_meter_img = ImageManager.loadBHud("TP_Meter");};
 	if (String(Moghunter.bhud_at_meter_visible) == "true") {this._at_meter_img = ImageManager.loadBHud("ATB_Meter");};
 	if (String(Moghunter.bhud_hp_number_visible) == "true") {this._hp_number_img = ImageManager.loadBHud("HP_Number");};
 	if (String(Moghunter.bhud_mp_number_visible) == "true") {this._mp_number_img = ImageManager.loadBHud("MP_Number");};
-	if (String(Moghunter.bhud_tp_number_visible) == "true") {this._tp_number_img = ImageManager.loadBHud("TP_Number");};
+	// if (String(Moghunter.bhud_tp_number_visible) == "true") {this._tp_number_img = ImageManager.loadBHud("TP_Number");};
 	if (String(Moghunter.bhud_maxhp_number_visible) == "true") {this._maxhp_number_img = ImageManager.loadBHud("HP_Number2");};
 	if (String(Moghunter.bhud_maxmp_number_visible) == "true") {this._maxmp_number_img = ImageManager.loadBHud("MP_Number2");};
-	if (String(Moghunter.bhud_maxtp_number_visible) == "true") {this._maxtp_number_img = ImageManager.loadBHud("TP_Number2");};	
+	// if (String(Moghunter.bhud_maxtp_number_visible) == "true") {this._maxtp_number_img = ImageManager.loadBHud("TP_Number2");};	
 };
 
 //==============================
@@ -2124,10 +2124,10 @@ Battle_Hud.prototype.base_parameter_clear = function() {
 	 this._maxmp_old = [-1,-1];
 	 this._mp_old_ani = [-1,-1];
 	 this._mp_flow = [false,0,0,0];
-	 this._tp_old = [-1,-1];
-	 this._maxtp_old = [-1,-1];
-	 this._tp_old_ani = -1;
-	 this._tp_flow = [false,0,0,0];
+	//  this._tp_old = [-1,-1];
+	//  this._maxtp_old = [-1,-1];
+	//  this._tp_old_ani = -1;
+	//  this._tp_flow = [false,0,0,0];
 	 this._at_flow = [false,0,0,0];
 	 this._hp_number_old = -1;
 	 this._mp_number_old = -1;
@@ -2142,7 +2142,7 @@ Battle_Hud.prototype.base_parameter_clear = function() {
 	 this._diagonal_number[2] = Moghunter.bhud_tp_diagonal_number;
 	 this._hp_img_data = [0,0,0];
 	 this._mp_img_data = [0,0,0];
-	 this._tp_img_data = [0,0,0];
+	//  this._tp_img_data = [0,0,0];
 	 this._states_old = [];
 	 this._states_data = [0,0,0];
 	 this._active = false;
@@ -2271,15 +2271,15 @@ Battle_Hud.prototype.create_base_sprites = function() {
 Battle_Hud.prototype.create_sprites = function() {
 	this.create_hp_meter();
 	this.create_mp_meter();
-    this.create_tp_meter();
+    // this.create_tp_meter();
 	this.create_at_meter();	
 	if (String(Moghunter.bhud_layoverlay_visible) == "true") {this.create_layoutOverlay()};
 	this.create_hp_number();	
 	this.create_maxhp_number();
 	this.create_mp_number();	
     this.create_maxmp_number();
- 	this.create_tp_number();
-	this.create_maxtp_number();
+ 	// this.create_tp_number();
+	// this.create_maxtp_number();
 	this._stateType = Number(Moghunter.bhud_statesType);
 	if (this._stateType === 0) {
         this.create_states();
@@ -2299,7 +2299,7 @@ Battle_Hud.prototype.update_sprites = function() {
 	this.update_face();	
     this.update_hp();
 	this.update_mp();
-    this.update_tp();
+    // this.update_tp();
 	this.update_at();	 
     if (this._state_icon) {
 		if (this._stateType === 0) {
@@ -2440,8 +2440,8 @@ Battle_Hud.prototype.need_refresh_parameter = function(parameter) {
 		 if (this._mp_old[1] != this._battler.mmp) {return true};
          break;			
   	case 2:
-         if (this._tp_old[0] != this._battler.tp) {return true};
-		 if (this._tp_old[1] != this._battler.maxTp()) {return true};
+        //  if (this._tp_old[0] != this._battler.tp) {return true};
+		//  if (this._tp_old[1] != this._battler.maxTp()) {return true};
          break;					
   };
   return false;
@@ -2847,104 +2847,108 @@ Battle_Hud.prototype.update_mp = function() {
 // * Create TP Meter
 //==============================
 Battle_Hud.prototype.create_tp_meter = function() {
-	if (String(Moghunter.bhud_tp_meter_visible) != "true") {return};
-	this.removeChild(this._tp_meter_blue);
-	this.removeChild(this._tp_meter_red);
-	if (!this._battler) {return};
-	this._tp_meter_red = new Sprite(this._tp_meter_img);
-	this._tp_meter_red.x = this._pos_x + Moghunter.bhud_tp_meter_pos_x;
-	this._tp_meter_red.y = this._pos_y + Moghunter.bhud_tp_meter_pos_y;
-	this._tp_meter_red.rotation = Moghunter.bhud_tp_meter_rotation;
-	this.addChild(this._tp_meter_red);		
-	this._tp_meter_blue = new Sprite(this._tp_meter_img);
-	this._tp_meter_blue.x = this._tp_meter_red.x;
-	this._tp_meter_blue.y = this._tp_meter_red.y;
-	this._tp_meter_blue.rotation = this._tp_meter_red.rotation;
-	this.addChild(this._tp_meter_blue);
-	if (String(Moghunter.bhud_tp_meter_flow) === "true") {this._tp_flow[0] = true;
-	    this._tp_flow[2] = this._tp_meter_img.width / 3;
-		this._tp_flow[3] = this._tp_flow[2] * 2;
-		this._tp_flow[1] = Math.floor(Math.random() * this._tp_flow[2]);
-	};
+	// if (String(Moghunter.bhud_tp_meter_visible) != "true") {return};
+	// this.removeChild(this._tp_meter_blue);
+	// this.removeChild(this._tp_meter_red);
+	// if (!this._battler) {return};
+	// this._tp_meter_red = new Sprite(this._tp_meter_img);
+	// this._tp_meter_red.x = this._pos_x + Moghunter.bhud_tp_meter_pos_x;
+	// this._tp_meter_red.y = this._pos_y + Moghunter.bhud_tp_meter_pos_y;
+	// this._tp_meter_red.rotation = Moghunter.bhud_tp_meter_rotation;
+	// this.addChild(this._tp_meter_red);		
+	// this._tp_meter_blue = new Sprite(this._tp_meter_img);
+	// this._tp_meter_blue.x = this._tp_meter_red.x;
+	// this._tp_meter_blue.y = this._tp_meter_red.y;
+	// this._tp_meter_blue.rotation = this._tp_meter_red.rotation;
+	// this.addChild(this._tp_meter_blue);
+	// if (String(Moghunter.bhud_tp_meter_flow) === "true") {this._tp_flow[0] = true;
+	//     this._tp_flow[2] = this._tp_meter_img.width / 3;
+	// 	this._tp_flow[3] = this._tp_flow[2] * 2;
+	// 	this._tp_flow[1] = Math.floor(Math.random() * this._tp_flow[2]);
+	// };
+	return;
 };
 
 //==============================
 // * Create TP Number
 //==============================
 Battle_Hud.prototype.create_tp_number = function() {
-	if (String(Moghunter.bhud_tp_number_visible) != "true") {return};
-	if (this._tp_number) {for (var i = 0; i < this._tp_number.length; i++) {this.removeChild(this._tp_number[i]);}};
-	if (!this._battler) {return};
-	this._tp_number = [];
-	this._tp_img_data = [this._tp_number_img.width,this._tp_number_img.height,
-	                      this._tp_number_img.width / 10, this._tp_number_img.height / 2,
-						  this._pos_x + Moghunter.bhud_tp_number_pos_x,
-						  this._pos_y + Moghunter.bhud_tp_number_pos_y,
-						  ];
-	for (var i = 0; i < 5; i++) {
-	   this._tp_number[i] = new Sprite(this._tp_number_img);
-	   this._tp_number[i].visible = false;
-	   this._tp_number[i].x = this._tp_img_data[4];
-	   this._tp_number[i].y = this._tp_img_data[5] ;
-	   this.addChild(this._tp_number[i]);
-	};	
-	this._tp_number_old = [this._battler.tp,this._battler.maxTp()];
-	this.refresh_number(this._tp_number,this._tp_number_old,this._tp_img_data,this._tp_img_data[4],this._tp_img_data[5],2);	
+	return;
+	// if (String(Moghunter.bhud_tp_number_visible) != "true") {return};
+	// if (this._tp_number) {for (var i = 0; i < this._tp_number.length; i++) {this.removeChild(this._tp_number[i]);}};
+	// if (!this._battler) {return};
+	// this._tp_number = [];
+	// this._tp_img_data = [this._tp_number_img.width,this._tp_number_img.height,
+	//                       this._tp_number_img.width / 10, this._tp_number_img.height / 2,
+	// 					  this._pos_x + Moghunter.bhud_tp_number_pos_x,
+	// 					  this._pos_y + Moghunter.bhud_tp_number_pos_y,
+	// 					  ];
+	// for (var i = 0; i < 5; i++) {
+	//    this._tp_number[i] = new Sprite(this._tp_number_img);
+	//    this._tp_number[i].visible = false;
+	//    this._tp_number[i].x = this._tp_img_data[4];
+	//    this._tp_number[i].y = this._tp_img_data[5] ;
+	//    this.addChild(this._tp_number[i]);
+	// };	
+	// this._tp_number_old = [this._battler.tp,this._battler.maxTp()];
+	// this.refresh_number(this._tp_number,this._tp_number_old,this._tp_img_data,this._tp_img_data[4],this._tp_img_data[5],2);	
 };
 
 //==============================
 // * Create MaxTP Number
 //==============================
 Battle_Hud.prototype.create_maxtp_number = function() {
-	if (String(Moghunter.bhud_maxtp_number_visible) != "true") {return};
-	if (this._maxtp_number) {for (var i = 0; i < this._maxtp_number.length; i++) {this.removeChild(this._maxtp_number[i]);}};
-	if (!this._battler) {return};
-	this._maxtp_number = [];
-	this._maxtp_img_data = [this._maxtp_number_img.width,this._maxtp_number_img.height,
-	                      this._maxtp_number_img.width / 10, this._maxtp_number_img.height / 2,
-						  this._pos_x + Moghunter.bhud_maxtp_number_pos_x,
-						  this._pos_y + Moghunter.bhud_maxtp_number_pos_y,
-						  ];
-	for (var i = 0; i < 5; i++) {
-	   this._maxtp_number[i] = new Sprite(this._maxtp_number_img);
-	   this._maxtp_number[i].visible = false;
-	   this._maxtp_number[i].x = this._maxtp_img_data[4];
-	   this._maxtp_number[i].y = this._maxtp_img_data[5] ;
-	   this.addChild(this._maxtp_number[i]);
-	};	
-	this._maxtp_number_old = 100;
-	this.refresh_number(this._maxtp_number,this._maxtp_number_old,this._maxtp_img_data,this._maxtp_img_data[4],this._maxtp_img_data[5],2);	
+	return;
+	// if (String(Moghunter.bhud_maxtp_number_visible) != "true") {return};
+	// if (this._maxtp_number) {for (var i = 0; i < this._maxtp_number.length; i++) {this.removeChild(this._maxtp_number[i]);}};
+	// if (!this._battler) {return};
+	// this._maxtp_number = [];
+	// this._maxtp_img_data = [this._maxtp_number_img.width,this._maxtp_number_img.height,
+	//                       this._maxtp_number_img.width / 10, this._maxtp_number_img.height / 2,
+	// 					  this._pos_x + Moghunter.bhud_maxtp_number_pos_x,
+	// 					  this._pos_y + Moghunter.bhud_maxtp_number_pos_y,
+	// 					  ];
+	// for (var i = 0; i < 5; i++) {
+	//    this._maxtp_number[i] = new Sprite(this._maxtp_number_img);
+	//    this._maxtp_number[i].visible = false;
+	//    this._maxtp_number[i].x = this._maxtp_img_data[4];
+	//    this._maxtp_number[i].y = this._maxtp_img_data[5] ;
+	//    this.addChild(this._maxtp_number[i]);
+	// };	
+	// this._maxtp_number_old = 100;
+	// this.refresh_number(this._maxtp_number,this._maxtp_number_old,this._maxtp_img_data,this._maxtp_img_data[4],this._maxtp_img_data[5],2);	
 };
 
 //==============================
 // * Update TP
 //==============================
 Battle_Hud.prototype.update_tp = function() {
-	if (this._tp_meter_blue) {
-		if(this._tp_flow[0]) {
-		   this.refresh_meter_flow(this._tp_meter_blue,this._battler.tp,this._battler.maxTp(),0,this._tp_flow[1]);
-	   	   var dif_meter = this.update_dif(this._tp_old_ani[0],this._battler.tp,160)
-		   if (this._tp_old_ani[0] != dif_meter) {this._tp_old_ani[0] = dif_meter;
-	       this.refresh_meter_flow(this._tp_meter_red,this._tp_old_ani[0],this._battler.maxTp(),1,this._tp_flow[1]);
-		   };
-		   this._tp_flow[1] += 1.5;
-		   if (this._tp_flow[1] > this._tp_flow[3]) {this._tp_flow[1] = 0};		   
-   	    }
-		else {	
-			if (this.need_refresh_parameter(2)) {
-				this.refresh_meter(this._tp_meter_blue,this._battler.tp,this._battler.maxTp(),0);
-				this._tp_old = [this._battler.tp,this._battler.maxTp()];
-			};
-			var dif_meter = this.update_dif(this._tp_old_ani[0],this._battler.tp,160)
-			if (this._tp_old_ani[0] != dif_meter) {this._tp_old_ani[0] = dif_meter;
-			this.refresh_meter(this._tp_meter_red,this._tp_old_ani[0],this._battler.maxTp(),1);};
-	};
-    };
-	if (this._tp_number) {
-		var dif_number = this.update_dif(this._tp_number_old,this._battler.tp,30)
-		if (this._tp_number_old != dif_number) {this._tp_number_old = dif_number;
-		this.refresh_number(this._tp_number,this._tp_number_old,this._tp_img_data,this._tp_img_data[4],this._tp_img_data[5],2);};
-	};
+	return;
+	// if (this._tp_meter_blue) {
+	// 	if(this._tp_flow[0]) {
+	// 	   this.refresh_meter_flow(this._tp_meter_blue,this._battler.tp,this._battler.maxTp(),0,this._tp_flow[1]);
+	//    	   var dif_meter = this.update_dif(this._tp_old_ani[0],this._battler.tp,160)
+	// 	   if (this._tp_old_ani[0] != dif_meter) {this._tp_old_ani[0] = dif_meter;
+	//        this.refresh_meter_flow(this._tp_meter_red,this._tp_old_ani[0],this._battler.maxTp(),1,this._tp_flow[1]);
+	// 	   };
+	// 	   this._tp_flow[1] += 1.5;
+	// 	   if (this._tp_flow[1] > this._tp_flow[3]) {this._tp_flow[1] = 0};		   
+   	//     }
+	// 	else {	
+	// 		if (this.need_refresh_parameter(2)) {
+	// 			this.refresh_meter(this._tp_meter_blue,this._battler.tp,this._battler.maxTp(),0);
+	// 			this._tp_old = [this._battler.tp,this._battler.maxTp()];
+	// 		};
+	// 		var dif_meter = this.update_dif(this._tp_old_ani[0],this._battler.tp,160)
+	// 		if (this._tp_old_ani[0] != dif_meter) {this._tp_old_ani[0] = dif_meter;
+	// 		this.refresh_meter(this._tp_meter_red,this._tp_old_ani[0],this._battler.maxTp(),1);};
+	// };
+    // };
+	// if (this._tp_number) {
+	// 	var dif_number = this.update_dif(this._tp_number_old,this._battler.tp,30)
+	// 	if (this._tp_number_old != dif_number) {this._tp_number_old = dif_number;
+	// 	this.refresh_number(this._tp_number,this._tp_number_old,this._tp_img_data,this._tp_img_data[4],this._tp_img_data[5],2);};
+	// };
 };
 
 //==============================
