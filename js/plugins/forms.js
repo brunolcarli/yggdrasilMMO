@@ -21,7 +21,7 @@ function send_login_request(){
                         char_login['is_ko'] = char_login['isKo'];
                         localStorage.setItem('data', JSON.stringify(char_login));
                         logged_char = char_login;
-                        window.location.href = '../index2.html'
+                        window.location.href = 'index2.html'
                     });
                 });
             }
