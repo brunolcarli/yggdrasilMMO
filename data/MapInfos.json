@@ -2,7 +2,7 @@
 null,
 {"id":1,"expanded":true,"name":"Tool Map","order":1,"parentId":0,"scrollX":998,"scrollY":682},
 {"id":2,"expanded":true,"name":"Battle Test","order":34,"parentId":24,"scrollX":998,"scrollY":682},
-{"id":3,"expanded":true,"name":"Demonstration","order":2,"parentId":0,"scrollX":998,"scrollY":682},
+{"id":3,"expanded":false,"name":"Demonstration","order":2,"parentId":0,"scrollX":978.5454545454546,"scrollY":819.2727272727273},
 {"id":4,"expanded":false,"name":"MAP 01 (Sword)","order":5,"parentId":21,"scrollX":832,"scrollY":640},
 {"id":5,"expanded":true,"name":"ABS Mode","order":3,"parentId":3,"scrollX":998,"scrollY":682},
 {"id":6,"expanded":false,"name":"MAP 02 (Bow)","order":6,"parentId":21,"scrollX":819,"scrollY":445.5},
@@ -34,7 +34,7 @@ null,
 {"id":32,"expanded":false,"name":"MAP 08","order":23,"parentId":23,"scrollX":720.8888888888889,"scrollY":571.1111111111111},
 {"id":33,"expanded":true,"name":"MAP 09","order":24,"parentId":23,"scrollX":720.8888888888889,"scrollY":475.1111111111111},
 {"id":34,"expanded":false,"name":"MAP 10 (Boss)","order":25,"parentId":23,"scrollX":728,"scrollY":388.8888888888889},
-{"id":35,"expanded":false,"name":"EVENT_GROUP","order":37,"parentId":0,"scrollX":1130.1818181818182,"scrollY":819.2727272727273},
-{"id":36,"expanded":true,"name":"ancient_forest_area_1","order":36,"parentId":37,"scrollX":1112.7272727272727,"scrollY":819.2727272727273},
+{"id":35,"expanded":false,"name":"EVENT_GROUP","order":37,"parentId":0,"scrollX":978.5454545454546,"scrollY":819.2727272727273},
+{"id":36,"expanded":true,"name":"ancient_forest_area_1","order":36,"parentId":37,"scrollX":961.0909090909091,"scrollY":819.2727272727273},
 {"id":37,"expanded":true,"name":"Yggdrasil","order":35,"parentId":0,"scrollX":998,"scrollY":682}
 ]

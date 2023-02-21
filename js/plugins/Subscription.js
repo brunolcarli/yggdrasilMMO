@@ -72,7 +72,7 @@
     for (let i=0; i < 15; i++){
       setTimeout(() => {
         event.moveStraight(event.findDirectionTo(data['x'], data['y']));
-      }, i * 100);
+      }, i * 10);
     }
   }
 
@@ -97,7 +97,7 @@
     for (let i=0; i < 15; i++){
       setTimeout(() => {
         event.moveStraight(event.findDirectionTo(data['x'], data['y']));
-      }, i * 100);
+      }, i * 10);
     }
   }
 
