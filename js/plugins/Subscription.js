@@ -57,6 +57,9 @@
 
 
   function onEnemyMovement(data){
+    if (data['map_area'] != $gamePlayer.data['map_area']){
+      return;
+    }
     let event;
     for (i in $gameMap._events){
       if ($gameMap._events[i].data == undefined){
@@ -127,6 +130,9 @@
   }
 
   function onEnemySpawn(data){
+    if (data['area'] != $gamePlayer.data['map_area']){
+      return;
+    }
     let event_id = enemy_to_event(data['enemy_name']);
     data['currentHp'] = data['current_hp'];
     Galv.SPAWN.event(event_id, data['position_x'], data['position_y'], false, data);
