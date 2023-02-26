@@ -1,6 +1,6 @@
 
 
-const server_host = "https://ggj23server.brunolcarli.repl.co/graphql/";
+const server_host = "https://yggdrasil.beelzeware.dev/graphql/";
 
 
 function status(response) {
@@ -404,7 +404,6 @@ function update_enemy_vital_stats(enemy_id, hp, sp) {
     })
         .then(json)
         .then(data => {
-            console.log(data)
             return data;
         })
         .catch(err => {
@@ -427,7 +426,6 @@ function update_character_vital_stats(character_id, hp, sp) {
     })
         .then(json)
         .then(data => {
-            console.log(data)
             return data;
         })
         .catch(err => {

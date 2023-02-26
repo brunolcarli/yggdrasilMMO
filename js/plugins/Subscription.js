@@ -40,7 +40,6 @@
       }
     }
     if (event == undefined){
-      console.log('Event not found');
       return;
     }
 
@@ -71,7 +70,6 @@
       }
     }
     if (event == undefined){
-      console.log('Event not found');
       return;
     }
 
@@ -99,7 +97,6 @@
     }
 
     if (event == undefined){
-      console.log('Event not found');
       return;
     }
 
@@ -158,7 +155,7 @@
     };
 
     console.log('Connecting to broadcaster...');
-    webSocket = new WebSocket("wss://ggj23server.brunolcarli.repl.co/subscriptions/", "graphql-ws");
+    webSocket = new WebSocket("wss://yggdrasil.beelzeware.dev/subscriptions/", "graphql-ws");
     webSocket.onmessage = function (event) {
       data = JSON.parse(event.data);
       operation = Object.keys(data['payload']['data'])[0];
