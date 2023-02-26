@@ -72,15 +72,10 @@
     if (event == undefined){
       return;
     }
-
-    for (let i=0; i < 15; i++){
       try{
-        setTimeout(() => {
           event.moveStraight(event.findDirectionTo(data['x'], data['y']));
-        }, i * 100);
       }
-      catch(err){break;}
-    }
+      catch(err){}
   }
 
 
@@ -99,15 +94,11 @@
     if (event == undefined){
       return;
     }
-
-    for (let i=0; i < 15; i++){
-      try{
-        setTimeout(() => {
-          event.moveStraight(event.findDirectionTo(data['x'], data['y']));
-        }, i * 1000);
-      }
-      catch(err){break;}
+    try{
+      event.moveStraight(event.findDirectionTo(data['x'], data['y']));
     }
+    catch(err){}
+
   }
 
   function onCharacterLogIn(data){
