@@ -285,7 +285,28 @@ Scene_Base.prototype.popScene = function() {
  */
 Scene_Base.prototype.checkGameover = function() {
     if ($gameParty.isAllDead()) {
-        SceneManager.goto(Scene_Gameover);
+        if ($gameVariables.value(52) == false){
+            ko_respawn_message();
+        }
+        else if ($gameVariables.value(51) == 0 || $gameVariables.value(51) == 1){
+            let respawn_option = $gameVariables.value(51);
+            console.log('> ', respawn_option)
+            if (respawn_option == 0){
+                respawn_player_character();
+                $gameParty.reviveBattleMembers();
+                $gameParty.members().forEach(function(actor) {actor.recoverAll(); });
+                $gamePlayer.requestMapReload();
+                $gameVariables.setValue(52, false);
+                $gameVariables.setValue(51, '-');
+                // SceneManager.goto(Scene_Map);
+            }
+            else if (respawn_option == 1){
+                respawn_player_character();
+                $gameVariables.setValue(51, '-');
+                $gameVariables.setValue(52, false);
+                to_title();
+            }
+        }
     }
 };
 
@@ -2643,7 +2664,7 @@ Scene_Gameover.prototype.initialize = function() {
 Scene_Gameover.prototype.create = function() {
     Scene_Base.prototype.create.call(this);
     this.playGameoverMusic();
-    this.createBackground();
+    // this.createBackground();
 };
 
 Scene_Gameover.prototype.start = function() {
@@ -2685,5 +2706,5 @@ Scene_Gameover.prototype.isTriggered = function() {
 };
 
 Scene_Gameover.prototype.gotoTitle = function() {
-    SceneManager.goto(Scene_Title);
+    SceneManager.goto(Scene_Map);
 };

@@ -338,8 +338,8 @@ function query_character(character_id){
 }
 
 
-function respawn_mutation(input_data){
-    let payload = `{"query": "mutation { characterRespawn(input: ${input_data}){character {id name isKo maxHp maxSp currentHp currentSp areaLocation classType}} }"}`;
+function respawn_mutation(character_id){
+    let payload = `{"query": "mutation { characterRespawn(input: {id: ${character_id}}){character {id name isKo maxHp maxSp currentHp currentSp areaLocation classType positionX positionY}} }"}`;
     var options = get_request_options(payload);
     return fetch(server_host, options)
         .then(json)
@@ -424,12 +424,35 @@ function update_character_vital_stats(character_id, hp, sp) {
         "headers": headers,
         "body": `{\"query\":\"mutation character_health { updateCharacterVitalStats(input:{ id: ${character_id} hp: ${hp} sp: ${sp} }){ character{ id name maxHp currentHp maxSp currentSp areaLocation isKo} } }\"}`
     })
-        .then(json)
-        .then(data => {
-            return data;
-        })
-        .catch(err => {
-            console.error(err);
-        });
+    .then(json)
+    .then(data => {
+        return data;
+    })
+    .catch(err => {
+        console.error(err);
+    });
+};
+
+
+function set_character_respawn_spot_mutation(character_id, spot_name){
+    // var token = localStorage.getItem('token');
+    var headers = {
+        "cookie": "csrftoken=9YXcKsPnJSojmIXsjvqlM7TFP0tBfiU8GwVopYDWNKHSQnEUKLnPzJdsCjSb0Cfn",
+        "Content-Type": "application/json",
+        // "Authorization": `JWT ${token}`
+    };
+    let payload = `{\"query\":\"mutation character_respawn_spot { setCharacterRespawnSpot(input:{ id: ${character_id} spot: \\\"${spot_name}\\\" }){ character{ id name maxHp currentHp maxSp currentSp areaLocation isKo} } }\"}`
+    return fetch(server_host, {
+        "method": "POST",
+        "headers": headers,
+        "body": payload
+    })
+    .then(json)
+    .then(data => {
+        return data;
+    })
+    .catch(err => {
+        console.error(err);
+    });
 };
 

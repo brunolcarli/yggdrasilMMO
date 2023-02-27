@@ -1945,8 +1945,11 @@ SceneManager.onKeyDown = function(event) {
 
 SceneManager.catchException = function(e) {
     if (e instanceof Error) {
-        Graphics.printError(e.name, e.message);
+        // Graphics.printError(e.name, e.message);
+        console.log(e.name, e.message);
         console.error(e.stack);
+        alert('Something wrong just happened. Please Try again!');
+        window.location.href = 'index.html';
     } else {
         Graphics.printError('UnknownError', e);
     }
