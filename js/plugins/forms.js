@@ -10,19 +10,23 @@ function send_login_request(){
                     username = user_characters_response['username'];
                     user_id = user_characters_response['id'];
                     available_chars = user_characters_response['characters'];
+
+                    // TODO select a character from character selection screen
+                    localStorage.setItem('char_id', available_chars[0]['id'])
+                    window.location.href = 'index2.html';
     
                     // TODO hardcoded select first character
-                    character_login_mutation(`{id: ${available_chars[0]['id']}}`).then(char_login => {
-                        char_login['hp'] = char_login['currentHp'];
-                        char_login['sp'] = char_login['currentSp'];
-                        char_login['map_area'] = char_login['areaLocation'];
-                        char_login['x'] = char_login['positionX'];
-                        char_login['y'] = char_login['positionY'];
-                        char_login['is_ko'] = char_login['isKo'];
-                        localStorage.setItem('data', JSON.stringify(char_login));
-                        logged_char = char_login;
-                        window.location.href = 'index2.html'
-                    });
+                    // character_login_mutation(`{id: ${available_chars[0]['id']}}`).then(char_login => {
+                    //     char_login['hp'] = char_login['currentHp'];
+                    //     char_login['sp'] = char_login['currentSp'];
+                    //     char_login['map_area'] = char_login['areaLocation'];
+                    //     char_login['x'] = char_login['positionX'];
+                    //     char_login['y'] = char_login['positionY'];
+                    //     char_login['is_ko'] = char_login['isKo'];
+                    //     localStorage.setItem('data', JSON.stringify(char_login));
+                    //     logged_char = char_login;
+                    //     window.location.href = 'index2.html'
+                    // });
                 });
             }
         });
