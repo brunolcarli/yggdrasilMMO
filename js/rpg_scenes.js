@@ -290,7 +290,6 @@ Scene_Base.prototype.checkGameover = function() {
         }
         else if ($gameVariables.value(51) == 0 || $gameVariables.value(51) == 1){
             let respawn_option = $gameVariables.value(51);
-            console.log('> ', respawn_option)
             if (respawn_option == 0){
                 respawn_player_character();
                 $gameParty.reviveBattleMembers();
@@ -298,7 +297,6 @@ Scene_Base.prototype.checkGameover = function() {
                 $gamePlayer.requestMapReload();
                 $gameVariables.setValue(52, false);
                 $gameVariables.setValue(51, '-');
-                // SceneManager.goto(Scene_Map);
             }
             else if (respawn_option == 1){
                 respawn_player_character();
