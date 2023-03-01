@@ -13,7 +13,11 @@ function enemy_to_event(enemy_name){
   const enemy2event = {
     'goblin': 4,
     'spider': 5,
-    'wolf': 6
+    'wolf': 6,
+    'poison_snake': 8,
+    'killer_fungus': 9,
+    'ent': 10,
+    'great_fairy': 7
   };
   return enemy2event[enemy_name];
 }
