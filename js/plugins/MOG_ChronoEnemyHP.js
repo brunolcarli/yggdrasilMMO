@@ -145,7 +145,7 @@ Game_Action.prototype.afterApplyCN = function(target,result,oldhp,oldmp) {
 	_mog_chrono_gaction_afterApplyCN.call(this,target,result,oldhp,oldmp);
 	if (this.chronoEnemyHPNeedData(target)) {
 		$gameTemp._chronoEnemyHP[0] = true; 
-		$gameTemp._chronoEnemyHP[1] = target.name(); 
+		$gameTemp._chronoEnemyHP[1] = target.data.name; 
 		$gameTemp._chronoEnemyHP[2] = target.hp;
 		$gameTemp._chronoEnemyHP[3] = target.mhp;
 	};

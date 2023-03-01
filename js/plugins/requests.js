@@ -235,7 +235,7 @@ function new_user_sign_up(username, password, email) {
 
 
 function query_logged_characters(area_location) {
-    const payload = `{"query": "query characters{ characters(isLogged: true areaLocation: \\\"${area_location}\\\"){id lv maxHp currentHp maxSp currentSp name positionX positionY isLogged classType isKo}} "}`;
+    const payload = `{"query": "query characters{ characters(isLogged: true areaLocation: \\\"${area_location}\\\"){id lv maxHp currentHp maxSp currentSp name positionX positionY isLogged classType isKo  power resistance agility }} "}`;
     var options = get_request_options(payload);
     // options['headers']['Authorization'] = 'JWT ' + localStorage.getItem('token');
     return fetch(server_host, options)

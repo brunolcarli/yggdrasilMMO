@@ -44,9 +44,6 @@ function onCharacterEvent(data) {
     'enemy_health': onEnemyHealth,
     'area_transfer': onAreaTransfer,
     'use_skill': onUseSkill,
-    // 'character_use_skill': onCharacterUseSkill,
-    // 'target_damaged': onTargetDamaged,
-    // 'target_knockout': onTargetKnockout,
     // 'character_exp_gain': onExpUp
 
   }
@@ -62,8 +59,29 @@ function onCharacterEvent(data) {
 //         PLAYER EVENTS            //
 /////////////////////////////////////
 function onCharacterHealth(data){
-  // TODO
-  console.log(data)
+  let event;
+  for (i in $gameMap._events){
+    if ($gameMap._events[i].data == undefined){
+      continue;
+    }
+    if ($gameMap._events[i].data['id'] == data['id'] && $gameMap._events[i].data['name'] == data['name']) {
+      event = $gameMap._events[i];
+      break;
+    }
+  }
+  if (event == undefined){
+    return;
+  }
+
+  if (data.current_hp < event._user.battler._hp){
+    event.requestAnimation(1);
+  }
+  else if (data.current_hp > event._user.battler._hp){
+    event.requestAnimation(41);
+  }
+  event._user.battler.setHp(data['current_hp']);
+  event._user.battler.setMp(data['current_sp']);
+  event._user.battler.refresh();
 }
 
 
@@ -112,18 +130,8 @@ function onAreaTransfer(data){
   +++++++++++++++++++++++++++++++++++++++++++++++*/
   // Avoid process self client
   if (data['id'] == logged_char.id){return;}
-
-  // Check if is a new player entering scene
-  if (data['to_area'] == $gameMap.displayName()){
-    let event_id = class_to_event(data['classType']);
-    data['currentHp'] = data['current_hp'];
-    data['maxHp'] = data['max_hp'];
-    data['map_area'] = data['to_area'];
-    Galv.SPAWN.event(event_id, data['x'], data['y'], false, data);
-    return;
-  }
-
   let event;
+  
   // Otherwise check if is a player leaving this scene
   if (data['from_map'] == $gameMap.displayName()){
     // Search event
@@ -149,10 +157,14 @@ function onAreaTransfer(data){
     try{
       Galv.SPAWN.unspawn(event);
       delete $gameMap._events[i];
-      return;
     }
     catch(err){console.log(err)}
 
+  }
+  
+  // Check if is a new player entering scene
+  if (data['to_area'] == $gameMap.displayName()){
+    new_player_event_ws(data);
   }
 
   // Otherwise do nothig because the event is not related to this client
@@ -217,6 +229,11 @@ function onCharacterLogIn(data){
   + return type: void
   +
   +++++++++++++++++++++++++++++++++++++++++++++++*/
+  // avoid processing self character
+  if (data.id == $gamePlayer.data.id){
+    return;
+  }
+  
   for (i in $gameMap._events){
     try{
       if(
@@ -232,10 +249,7 @@ function onCharacterLogIn(data){
     }
     catch(err){continue;}
   }
-  let event_id = class_to_event(data['classType']);
-  data['currentHp'] = data['current_hp'];
-  data['maxHp'] = data['max_hp'];
-  Galv.SPAWN.event(event_id, data['x'], data['y'], false, data);
+  new_player_event_ws(data);
 }
 
 

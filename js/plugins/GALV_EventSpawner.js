@@ -133,10 +133,14 @@ Galv.SPAWN.event = function(eventId,x,y,save, data) {
 		var save = y;
 		// Spawn random region where x = array of region Id's
 		var coords = Galv.SPAWN.randomRegion(x,y);
-		if (coords) $gameMap.spawnEvent(eventId,coords[0],coords[1],save, data);
+		if (coords) {
+			return $gameMap.spawnEvent(eventId,coords[0],coords[1],save, data);
+		}
 	} else {
 		// Spawn X,Y position
-		if (Galv.SPAWN.canSpawnOn(x,y)) $gameMap.spawnEvent(eventId,x,y,save, data);
+		if (Galv.SPAWN.canSpawnOn(x,y)){
+			return $gameMap.spawnEvent(eventId,x,y,save, data);
+		}
 	};
 };
 
@@ -280,8 +284,11 @@ Game_Map.prototype.spawnEvent = function(id,x,y,save, data) {
     this._events[eId] = new Game_SpawnEvent(this._mapId,eId,x,y,id,save, data);
 	
 	// Add save data if save
-	if (save) this._savedSpawnedEvents[this._mapId][eId] = {id: id, x:x, y:y, eId: Number(eId)};
-	if (Galv.SPAWN.onScene()) SceneManager._scene._spriteset.createSpawnEvent(eId);
+	if (save) {this._savedSpawnedEvents[this._mapId][eId] = {id: id, x:x, y:y, eId: Number(eId)};}
+	if (Galv.SPAWN.onScene()) {
+		SceneManager._scene._spriteset.createSpawnEvent(eId);
+	}
+	return this._events[eId];
 };
 
 
@@ -362,7 +369,7 @@ Spriteset_Map.prototype.createSpawnEvent = function(id) {
 	this._characterSprites[sId] = new Sprite_Character(event);
 	this._characterSprites[sId].update(); // To remove occsaional full-spriteset visible issue
 	this._tilemap.addChild(this._characterSprites[sId]);
-	
+	return this._characterSprites[sId];
 };
 
 })();

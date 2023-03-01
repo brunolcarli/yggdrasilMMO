@@ -1,36 +1,80 @@
 
 
 function class_to_event(class_type){
-    const class2event = {
-      'dps': 1,
-      'tanker': 2,
-      'supporter': 3
-    };
-    return class2event[class_type];
-  }
+  const class2event = {
+    'dps': 1,
+    'tanker': 2,
+    'supporter': 3
+  };
+  return class2event[class_type];
+}
 
 function enemy_to_event(enemy_name){
-    const enemy2event = {
-      'goblin': 4,
-      'spider': 5,
-      'wolf': 6
-    };
-    return enemy2event[enemy_name];
-  }
+  const enemy2event = {
+    'goblin': 4,
+    'spider': 5,
+    'wolf': 6
+  };
+  return enemy2event[enemy_name];
+}
+
+
+function new_player_event_ws(data){
+  data['maxHp'] = data.max_hp;
+  data['maxSp'] = data.max_sp;
+  data['currentHp'] = data.current_hp;
+  data['currentSp'] = data.current_sp;
+
+  let event_id = class_to_event(data['classType']);
+  let event = Galv.SPAWN.event(event_id, data['x'], data['y'], false, data);
+
+  event._user.battler.addParam(0, data.max_hp-100);
+  event._user.battler.setHp(data.current_hp);
+  event._user.battler.addParam(1, data.max_sp);
+  event._user.battler.setMp(data.current_sp);
+  event._user.battler.addParam(2, data.power);
+  event._user.battler.addParam(3, data.resistance);
+  event._user.battler.addParam(4, data.power);
+  event._user.battler.addParam(5, data.resistance);
+  event._user.battler.addParam(6, data.agility);
+  // event._user.battler._characterName = data.name;
+  event._user.battler.refresh();
+}
+
+
+function new_player_event_api(data){
+  let event_id = class_to_event(data['classType']);
+  data['x'] = data['positionX'];
+  data['y'] = data['positionY'];
+  let event = Galv.SPAWN.event(event_id, data['x'], data['y'], false, data);
+  event._user.battler.addParam(0, data.maxHp-100);
+  event._user.battler.setHp(data.currentHp);
+  event._user.battler.addParam(1, data.maxSp);
+  event._user.battler.setMp(data.currentSp);
+  event._user.battler.addParam(2, data.power);
+  event._user.battler.addParam(3, data.resistance);
+  event._user.battler.addParam(4, data.power);
+  event._user.battler.addParam(5, data.resistance);
+  event._user.battler.addParam(6, data.agility);
+  // event._user.battler.enemy().name = data.name;
+  event._user.battler.refresh();
+
+}
+
 
 
 function render_map_enemies(data){
-    for (i in data){
-        let event_id = enemy_to_event(data[i]['name']);
-        try{
-            Galv.SPAWN.event(event_id, data[i]['positionX'], data[i]['positionY'], false, data[i]);
-            // $gameMap._events[$gameMap._events.length-1].data = data[i];
-        }
-        catch(err){
-            console.log(err);
-            continue;
-        }
-    }
+  for (i in data){
+      let event_id = enemy_to_event(data[i]['name']);
+      try{
+          Galv.SPAWN.event(event_id, data[i]['positionX'], data[i]['positionY'], false, data[i]);
+          // $gameMap._events[$gameMap._events.length-1].data = data[i];
+      }
+      catch(err){
+          console.log(err);
+          continue;
+      }
+  }
 }
 
 
@@ -40,10 +84,8 @@ function render_map_players(data){
       if (data[i]['name'] == logged_char['name'] && data[i]['id'] == logged_char['id']){
         continue;
       }
-      let event_id = class_to_event(data[i]['classType']);
       try{
-          Galv.SPAWN.event(event_id, data[i]['positionX'], data[i]['positionY'], false, data[i]);
-          // $gameMap._events[$gameMap._events.length-1].data = data[i];
+          new_player_event_api(data[i])
       }
       catch(err){
           console.log(err);
