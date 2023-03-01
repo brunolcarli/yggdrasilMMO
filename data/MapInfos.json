@@ -36,14 +36,14 @@ null,
 {"id":34,"expanded":false,"name":"MAP 10 (Boss)","order":25,"parentId":23,"scrollX":728,"scrollY":388.8888888888889},
 {"id":35,"expanded":false,"name":"EVENT_GROUP","order":46,"parentId":0,"scrollX":987.5999999999999,"scrollY":818.4},
 {"id":36,"expanded":true,"name":"ancient_forest_area1","order":36,"parentId":37,"scrollX":968.4,"scrollY":818.4},
-{"id":37,"expanded":true,"name":"Yggdrasil","order":35,"parentId":0,"scrollX":1497,"scrollY":1023},
+{"id":37,"expanded":true,"name":"Yggdrasil","order":35,"parentId":0,"scrollX":855.4285714285713,"scrollY":584.5714285714286},
 {"id":38,"expanded":false,"name":"citadel_central_area","order":37,"parentId":37,"scrollX":1410.8571428571427,"scrollY":1169.142857142857},
 {"id":39,"expanded":false,"name":"citadel_south_area","order":38,"parentId":37,"scrollX":1996,"scrollY":1364},
 {"id":40,"expanded":false,"name":"open_fields_area1","order":39,"parentId":37,"scrollX":1383.4285714285713,"scrollY":1230.857142857143},
 {"id":41,"expanded":false,"name":"open_fields_area14","order":40,"parentId":37,"scrollX":1996,"scrollY":1364},
 {"id":42,"expanded":false,"name":"open_fields_area13","order":41,"parentId":37,"scrollX":1410.8571428571427,"scrollY":1169.142857142857},
-{"id":43,"expanded":false,"name":"ancient_forest_dungeon","order":42,"parentId":37,"scrollX":1493.142857142857,"scrollY":3020.5714285714284},
-{"id":44,"expanded":false,"name":"ancient_forest_area2","order":43,"parentId":37,"scrollX":2194.6666666666665,"scrollY":1818.6666666666667},
+{"id":43,"expanded":false,"name":"ancient_forest_dungeon","order":42,"parentId":37,"scrollX":1764.8571428571427,"scrollY":1534.2857142857142},
+{"id":44,"expanded":false,"name":"ancient_forest_area2","order":43,"parentId":37,"scrollX":2150,"scrollY":1722},
 {"id":45,"expanded":false,"name":"ancient_forest_area3","order":44,"parentId":37,"scrollX":968.4,"scrollY":1101.6},
-{"id":46,"expanded":false,"name":"ancient_forest_village","order":45,"parentId":37,"scrollX":2194.6666666666665,"scrollY":1818.6666666666667}
+{"id":46,"expanded":false,"name":"ancient_forest_village","order":45,"parentId":37,"scrollX":921.4285714285713,"scrollY":738}
 ]

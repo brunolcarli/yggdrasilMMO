@@ -41,7 +41,6 @@ function new_player_event_ws(data){
   event._user.battler.addParam(4, data.power);
   event._user.battler.addParam(5, data.resistance);
   event._user.battler.addParam(6, data.agility);
-  // event._user.battler._characterName = data.name;
   event._user.battler.refresh();
 }
 
@@ -60,7 +59,6 @@ function new_player_event_api(data){
   event._user.battler.addParam(4, data.power);
   event._user.battler.addParam(5, data.resistance);
   event._user.battler.addParam(6, data.agility);
-  // event._user.battler.enemy().name = data.name;
   event._user.battler.refresh();
 
 }

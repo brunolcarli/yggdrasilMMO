@@ -233,6 +233,10 @@ function onCharacterLogIn(data){
   if (data.id == $gamePlayer.data.id){
     return;
   }
+
+  if (data.map_area != $gamePlayer.data.map_area){
+    return;
+  }
   
   for (i in $gameMap._events){
     try{

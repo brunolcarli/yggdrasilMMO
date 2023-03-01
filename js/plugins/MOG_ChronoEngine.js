@@ -3507,7 +3507,6 @@ Game_Player.prototype.updateToolCommand = function() {
 //==============================
 var _mog_toolSys_gplayer_act = Game_Player.prototype.act;
 Game_Player.prototype.act = function(toolID) {
-	console.log(this.data)
 	_mog_toolSys_gplayer_act.call(this,toolID);
 	character_use_skill_mutation(`skillUserId: ${this.data.id} skillId: ${toolID} direction: ${this.direction()} classType:\\\"player\\\"`)
 
@@ -6938,9 +6937,20 @@ ToolEvent.prototype.gainExp = function(char,battler) {
 	} else {
 	  var oldLevel = this.user().battler()._level;
 	  this.user().battler().gainExpCN(exp);
-	  if (this.user().battler()._level > oldLevel) {
-		  this.user().requestAnimation(Number(Moghunter.ras_levelAnimationID));		
-	  };	  
+	  var is_lv_up = this.user().battler()._level > oldLevel;
+	  if (is_lv_up) {
+		  this.user().requestAnimation(Number(Moghunter.ras_levelAnimationID));
+	  };
+
+	  var mutation_exp_input = `{id: ${this.user().data.id} `;
+	  mutation_exp_input += `exp: ${exp} lv: ${this.user().battler()._level} `;
+	  mutation_exp_input += `isLvUp: ${is_lv_up} `;
+	  mutation_exp_input += `maxHp: ${this.user().battler().mhp} `;
+	  mutation_exp_input += `maxSp: ${this.user().battler().mmp} `;
+	  mutation_exp_input += `power: ${this.user().battler().atk} `;
+	  mutation_exp_input += `resistance: ${this.user().battler().def} `;
+	  mutation_exp_input += `agility: ${this.user().battler().agi} }`;
+	  gain_exp_mutation(mutation_exp_input);
 	};
 };
 
