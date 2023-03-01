@@ -43,6 +43,7 @@ function onCharacterEvent(data) {
     'character_health': onCharacterHealth,
     'enemy_health': onEnemyHealth,
     'area_transfer': onAreaTransfer,
+    'use_skill': onUseSkill,
     // 'character_use_skill': onCharacterUseSkill,
     // 'target_damaged': onTargetDamaged,
     // 'target_knockout': onTargetKnockout,
@@ -63,6 +64,34 @@ function onCharacterEvent(data) {
 function onCharacterHealth(data){
   // TODO
   console.log(data)
+}
+
+
+function onUseSkill(data){
+  // Avoid re-rendering self player action and action of players in another map scene
+  if (
+    data.map_area != $gamePlayer.data.map_area
+                  ||
+    (data.name == $gamePlayer.data.name && data.id == $gamePlayer.data.id)
+  ){return;}
+
+  // Select event that used the skill
+  let event;
+  for (i in $gameMap._events){
+    if ($gameMap._events[i].data == undefined){
+      continue;
+    }
+    if ($gameMap._events[i].data['id'] == data['id'] && $gameMap._events[i].data['name'] == data['name']) {
+      event = $gameMap._events[i];
+      break;
+    }
+  }
+
+  if (event == undefined){return;}
+
+  event.setDirection(ata.direction);
+  event.act(data.skill_id);
+
 }
 
 

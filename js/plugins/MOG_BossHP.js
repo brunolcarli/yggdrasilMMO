@@ -395,8 +395,45 @@ Game_Enemy.prototype.initMembers = function() {
 var _alias_mog_bosshp_setup = Game_Enemy.prototype.setup;
 Game_Enemy.prototype.setup = function(enemyId, x, y) {
 	_alias_mog_bosshp_setup.call(this,enemyId, x, y);
-    this.checkBossHPnoteTag();	
+    this.checkBossHPnoteTag();
+	// this._toolSkillId = 0;
+	// this._toolSkillActionId = 0;
+	// this._toolWeaponActionId = 0;
 };
+
+// Game_Enemy.prototype.toolSkillID = function() {
+//     return this._toolSkillActionId;
+// };
+
+// Game_Enemy.prototype.toolWeaponID = function() {
+//     return this._toolWeaponActionId;
+// };
+
+// Game_Enemy.prototype.equipToolSkillID = function(itemid) {
+//     this._toolSkillId = itemid;
+// 	this.setToolSkillID();
+// };
+
+// Game_Enemy.prototype.setToolSkillID = function() {
+// 	var item = $dataSkills[this._toolSkillId];
+// 	if (item) {
+// 		this._toolSkillActionId = this.getToolActionID(item);
+// 	} else {
+// 		this._toolSkillActionId = 0;
+// 	};	
+// };
+
+
+// Game_Enemy.prototype.setToolWeaponID = function() {
+// 	var item = this.equips()[0]
+// 	if (item) {
+// 		this._toolWeaponActionId = this.getToolActionID(item);
+// 	} else {
+// 		this._toolWeaponActionId = 0;
+// 	};
+// 	this.setChargeAttackID();
+// };
+
 
 //==============================
 // * Setup
@@ -416,6 +453,42 @@ Game_Enemy.prototype.transform = function(enemyId) {
     $gameTemp._battler_bhp_refresh = true;
 	this.checkBossHPnoteTag();	
 };
+
+// Adds command rase weapon and skill to Game_Enemy
+
+// //==============================
+// // * command Rase Weapon
+// //==============================
+// Game_Enemy.prototype.commandRasWeapon = function() {
+// 	var actionID =  this.battler().toolWeaponID();
+// 	if (this.battler()._ras.combo.id != 0) {
+// 		if (this.battler()._ras.combo.type != 0) {
+// 		    this.battler().clearRasCombo();
+// 		   return	
+// 		};
+// 		var actionID = this.battler()._ras.combo.id
+// 	};
+// 	this.act(actionID)
+//     this.prepareCombo(actionID,0);
+// };
+
+
+// //==============================
+// // * command Rase Skill
+// //==============================
+// Game_Enemy.prototype.commandRasSkill = function() {
+// 	var actionID =  this.battler().toolSkillID();
+// 	if (this.battler()._ras.combo.id != 0) {
+// 		if (this.battler()._ras.combo.type != 1) {
+// 		    this.battler().clearRasCombo();
+// 		   return	
+// 		};
+// 		var actionID = this.battler()._ras.combo.id
+// 	};
+// 	this.act(actionID);
+// 	this.prepareCombo(actionID,1);
+// };
+
 	
 //=============================================================================
 // ** Game Action

@@ -1460,13 +1460,6 @@ Game_Actor.prototype.getToolActionID = function(item) {
 		 if (note_data[0].toLowerCase() == "tool id"){
 			 actionID = Number(note_data[1]);
 		 }
-		//  if (DataManager.isArmor(item)) {
-		// 	 if (note_data[0].toLowerCase() == "shield pose suffix"){
-		// 			this._ras.guard.enabled = true;
-		// 			this._ras.guard.poseSuffix = String(note_data[1]);
-					
-		// 	 };
-		//  };
 	 },this);
 	 return actionID;
 };
@@ -1510,6 +1503,163 @@ Game_Enemy.prototype.setup = function(enemyId, x, y) {
 	_mog_toolSys_genemy_setup.call(this,enemyId, x, y);
     this.loadToolSysNotes()
 };
+
+var _mog_toolSys_genemy_initMembers = Game_Enemy.prototype.initMembers;
+Game_Enemy.prototype.initMembers = function() {
+	_mog_toolSys_genemy_initMembers.call(this);
+	this._toolSkillId = 0;
+	this._toolSkillActionId = 0;
+	this._toolWeaponActionId = 0;
+	this._toolItemId = 0;
+	this._toolItemActionId = 0;
+	// this._toolShieldActionId = 0;
+};
+
+
+//==============================
+// * prepare Combo 
+//==============================
+Game_Enemy.prototype.prepareCombo = function(actionID,type) {
+	if (this.isComboAction(actionID,type)) {
+		var tool = $gameMap.tool(actionID);
+		this._ras.combo.id = tool.combo.id;
+		this._ras.combo.time = tool.combo.time;
+	} else {
+		this.clearRasCombo();
+	};	
+};
+
+//==============================
+// * command Rase Weapon
+//==============================
+Game_Enemy.prototype.isComboAction = function(actionID,type) {
+     if (!$gameMap.toolIsExist(actionID)) {return false};
+     var tool = $gameMap.tool(actionID);
+     if (tool.combo.id === 0) {return false};
+     if (tool.combo.type != type) {return false};
+     return true;
+};
+
+//==============================
+// * Act
+//==============================
+var _mog_toolSys_genemy_act = Game_Enemy.prototype.act;
+Game_Enemy.prototype.act = function(toolID) {
+	_mog_toolSys_genemy_act.call(this,toolID);
+// if (Imported.MOG_PickupThrow) {$gamePlayer._pickup.wait = 2};
+};
+
+//==============================
+// * command Rase Weapon
+//==============================
+Game_Enemy.prototype.commandRasWeapon = function(action_id) {
+
+	// var actionID =  this.toolWeaponID();
+	// if (this._ras.combo.id != 0) {
+	// 	if (this._ras.combo.type != 0) {
+	// 	    this.clearRasCombo();
+	// 	   return	
+	// 	};
+	// 	var actionID = this._ras.combo.id
+	// };
+	this.act(action_id)
+    // this.prepareCombo(action_id,0);
+};
+
+//==============================
+// * tool Skill ID
+//==============================
+Game_Enemy.prototype.toolSkillID = function() {
+    return this._toolSkillActionId;
+};
+
+//==============================
+// * tool Weapon ID
+//==============================
+Game_Enemy.prototype.toolWeaponID = function() {
+    return this._toolWeaponActionId;
+};
+
+
+//==============================
+// * equip Tool skill ID
+//==============================
+Game_Enemy.prototype.equipToolSkillID = function(itemid) {
+    this._toolSkillId = itemid;
+	this.setToolSkillID();
+};
+
+
+//==============================
+// * set Tool Skill ID
+//==============================
+Game_Enemy.prototype.setToolSkillID = function() {
+	var item = $dataSkills[this._toolSkillId];
+	if (item) {
+		this._toolSkillActionId = this.getToolActionID(item);
+	} else {
+		this._toolSkillActionId = 0;
+	};	
+};
+
+//==============================
+// * set Tool Weapon ID
+//==============================
+Game_Enemy.prototype.setToolWeaponID = function() {
+	var item = this.equips()[0];
+	if (item) {
+		this._toolWeaponActionId = this.getToolActionID(item);
+	} else {
+		this._toolWeaponActionId = 0;
+	};
+	this.setChargeAttackID();
+};
+
+//==============================
+// * set Charge Attack ID
+//==============================
+Game_Enemy.prototype.setChargeAttackID = function() {
+	var tool = $gameMap.tool(this._toolWeaponActionId);
+	if (!tool) {return};
+	this._ras.charge.id = tool.charge.id;
+	this._ras.charge.time = 0;
+	this._ras.charge.time2 = 0;
+	this._ras.charge.maxtime = tool.charge.maxtime;
+};
+
+//==============================
+// * get Tool Action ID
+//==============================
+Game_Enemy.prototype.getToolActionID = function(item) {
+	var actionID = 0; 
+	var item_notes = item.note.split(/[\r\n]+/);
+	item_notes.forEach(function(note) {
+		var note_data = note.split(' : ')
+		if (note_data[0].toLowerCase() == "tool id"){
+			actionID = Number(note_data[1]);
+		}
+	},this);
+	return actionID;
+};
+
+//==============================
+// * refresh Tool Ids
+//==============================
+Game_Enemy.prototype.refreshToolIds = function(item) {
+	this.setToolSkillID();
+	this.setToolWeaponID();
+	// this.setToolArmorID();
+};
+
+//==============================
+// * refresh
+//==============================
+var _mog_toolSys_genemy_refresh_equips = Game_Enemy.prototype.changeEquip;
+Game_Enemy.prototype.changeEquip = function(slotId, item) {
+	_mog_toolSys_genemy_refresh_equips.call(this,slotId, item);
+	this.refreshToolIds();
+};
+
 
 //=============================================================================
 // ** Game Party
@@ -2512,15 +2662,15 @@ Game_CharacterBase.prototype.canActionBase = function() {
 //==============================
 Game_CharacterBase.prototype.canExecuteAction = function(toolID) {
 	if ($gameSystem.isChronoMode()) {return false};
-	if ($gameSystem._toolsOnMap.length > 0 && this.battler()) {
-		if (this.battler().isActor()) {return false};
-	};
-	if (!this.canUseTool(toolID)) {
-		this.clearActing();
-		return false;
-	};
-	if (this.isRequiredCast(toolID)) {this.prepareCast(toolID);return false};
-	if (this.isAutoTarget(toolID)) {this.executeAutoTarget(toolID);return false};
+	// if ($gameSystem._toolsOnMap.length > 0 && this.battler()) {
+	// 	if (this.battler().isActor()) {return false};
+	// };
+	// if (!this.canUseTool(toolID)) {
+	// 	this.clearActing();
+	// 	return false;
+	// };
+	// if (this.isRequiredCast(toolID)) {this.prepareCast(toolID);return false};
+	// if (this.isAutoTarget(toolID)) {this.executeAutoTarget(toolID);return false};
 	return true;
 };
 
@@ -3191,6 +3341,7 @@ Game_Player.prototype.commandRasWeapon = function() {
     this.prepareCombo(actionID,0);
 };
 
+
 //==============================
 // * command Rase Skill
 //==============================
@@ -3356,7 +3507,10 @@ Game_Player.prototype.updateToolCommand = function() {
 //==============================
 var _mog_toolSys_gplayer_act = Game_Player.prototype.act;
 Game_Player.prototype.act = function(toolID) {
+	console.log(this.data)
 	_mog_toolSys_gplayer_act.call(this,toolID);
+	character_use_skill_mutation(`skillUserId: ${this.data.id} skillId: ${toolID} direction: ${this.direction()} classType:\\\"player\\\"`)
+
 if (Imported.MOG_PickupThrow) {$gamePlayer._pickup.wait = 2};
 };
 
