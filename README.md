@@ -5,6 +5,6 @@ MMO RPG
 
 > RPG Maker MV client
 
-* Project undr construction *
+* Project under construction *
 
-Demo: https://brunolcarli.github.io/yggdrasilMMO/
+Demo: https://roots-of-sorrow.beelzeware.dev
