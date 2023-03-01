@@ -89,7 +89,7 @@ function onUseSkill(data){
 
   if (event == undefined){return;}
 
-  event.setDirection(ata.direction);
+  event.setDirection(data.direction);
   event.act(data.skill_id);
 
 }
