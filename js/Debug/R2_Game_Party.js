@@ -202,6 +202,7 @@ Game_Party.prototype.gainGold = function(amount) {
 
 Game_Party.prototype.loseGold = function(amount) {
     this.gainGold(-amount);
+
 };
 
 Game_Party.prototype.maxGold = function() {

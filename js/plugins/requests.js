@@ -180,7 +180,7 @@ function user_characters() {
 
 function character_login_mutation(input_data, authorization) {
     const query = `characterLogin(input: ${input_data})`;
-    const payload = `{"query": "mutation charLogin{${query}{character { id lv name exp maxHp maxSp currentHp currentSp power resistance agility isKo areaLocation classType positionX positionY wallet skills { name } }}}"}`;
+    const payload = `{"query": "mutation charLogin{${query}{character { id lv name exp maxHp maxSp currentHp currentSp power resistance agility isKo areaLocation classType positionX positionY wallet items skills { name } }}}"}`;
 
     var options = get_request_options(payload);
     // options['headers']['Authorization'] = authorization;
@@ -501,3 +501,26 @@ function gain_gold_mutation(input_data){
         console.error(err);
     });
 };
+
+
+function update_character_item_mutation(input_data){
+    // var token = localStorage.getItem('token');
+    var headers = {
+        "cookie": "csrftoken=9YXcKsPnJSojmIXsjvqlM7TFP0tBfiU8GwVopYDWNKHSQnEUKLnPzJdsCjSb0Cfn",
+        "Content-Type": "application/json",
+        // "Authorization": `JWT ${token}`
+    };
+    let payload = `{\"query\":\"mutation updateCharItem { characterUpdateItem(input: ${input_data}){ character{ id name maxHp currentHp maxSp currentSp areaLocation isKo wallet items} } }\"}`;
+    return fetch(server_host, {
+        "method": "POST",
+        "headers": headers,
+        "body": payload
+    })
+    .then(json)
+    .then(data => {
+        return data;
+    })
+    .catch(err => {
+        console.error(err);
+    });
+}
