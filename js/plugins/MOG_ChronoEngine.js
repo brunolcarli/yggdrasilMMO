@@ -6964,6 +6964,8 @@ ToolEvent.prototype.gainGold = function(char,battler) {
 	} else {	
 	   $gameParty.gainGold(gold);
 	};
+	var gain_gold_mutation_input = `{id: ${$gameParty.leader().data.id} amount: ${gold}}`;
+	gain_gold_mutation(gain_gold_mutation_input);
 };
 
 //==============================

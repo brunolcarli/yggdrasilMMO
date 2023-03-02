@@ -103,6 +103,7 @@ async function health_handler(id, class_type, hp, sp){
     'tanker': update_character_vital_stats,
     'supporter': update_character_vital_stats,
     'enemy': update_enemy_vital_stats,
+    'boss': update_enemy_vital_stats
   };
   await class_type_mapper[class_type](id, hp, sp);
 }
