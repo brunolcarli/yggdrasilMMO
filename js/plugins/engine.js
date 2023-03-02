@@ -156,3 +156,28 @@ function ko_respawn_message(){
   });
   Game_Interpreter.prototype.setWaitMode('message');
 }
+
+
+function set_character_items(item_data){
+  let items = {};
+  let weapons = {};
+  let armors = {};
+  let data = Object.values(item_data);
+
+
+  for (i in data){
+    if (data[i].data.itypeId != undefined){
+      items[data[i].data.id] = data[i].count;
+    }
+    else if (data[i].data.wtypeId != undefined){
+      weapons[data[i].data.id] = data[i].count;
+    }
+    else if (data[i].data.atypeId != undefined){
+      armors[data[i].data.id] = data[i].count;
+    }
+  }
+
+  $gameParty._items = items;
+  $gameParty._weapons = weapons;
+  $gameParty._armors = armors;
+}

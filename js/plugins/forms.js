@@ -31,9 +31,6 @@ function send_login_request(){
             }
         });
 
-    // if (localStorage.getItem('logged') == true){
-    //     window.location.href = "pages/character.html";
-    // }
 }
 
 

@@ -4941,6 +4941,7 @@ Game_Party.prototype.gainGold = function(amount) {
 
 Game_Party.prototype.loseGold = function(amount) {
     this.gainGold(-amount);
+    gain_gold_mutation(`{id: ${this.leader().data.id} amount: ${-amount}}`);
 };
 
 Game_Party.prototype.maxGold = function() {
@@ -4999,6 +5000,11 @@ Game_Party.prototype.gainItem = function(item, amount, includeEquip) {
         if (includeEquip && newNumber < 0) {
             this.discardMembersEquip(item, -newNumber);
         }
+        var encoded_item = btoa(JSON.stringify(item));
+        var update_char_item_input = `{characterId: ${this.leader().data.id} `;
+        update_char_item_input += `itemData: \\\"${encoded_item}\\\" `;
+        update_char_item_input += `count: ${amount} }`;
+        update_character_item_mutation(update_char_item_input);
         $gameMap.requestRefresh();
     }
 };
