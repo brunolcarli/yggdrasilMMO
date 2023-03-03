@@ -3626,11 +3626,19 @@ Game_Actor.prototype.isEquipChangeOk = function(slotId) {
 };
 
 Game_Actor.prototype.changeEquip = function(slotId, item) {
-    if (this.tradeItemWithParty(item, this.equips()[slotId]) &&
-            (!item || this.equipSlots()[slotId] === item.etypeId)) {
-        this._equips[slotId].setObject(item);
-        this.refresh();
-    }
+    // if (this.tradeItemWithParty(item, this.equips()[slotId]) &&
+    //         (!item || this.equipSlots()[slotId] === item.etypeId)) {
+    //     this._equips[slotId].setObject(item);
+    //     this.refresh();
+    //     let update_equipment_input = `{characterId: ${this.data.id} `;
+    //     update_equipment_input += `equipmentData: \\\"${btoa(JSON.stringify(this._equips, getCircularReplacer()))}\\\" }`;
+    //     update_equipment_mutation(update_equipment_input);
+    // }
+    this._equips[slotId].setObject(item);
+    this.refresh();
+    let update_equipment_input = `{characterId: ${this.data.id} `;
+    update_equipment_input += `equipmentData: \\\"${btoa(JSON.stringify(this._equips, getCircularReplacer()))}\\\" }`;
+    update_equipment_mutation(update_equipment_input);
 };
 
 Game_Actor.prototype.forceChangeEquip = function(slotId, item) {
@@ -4994,13 +5002,13 @@ Game_Party.prototype.gainItem = function(item, amount, includeEquip) {
         var lastNumber = this.numItems(item);
         var newNumber = lastNumber + amount;
         container[item.id] = newNumber.clamp(0, this.maxItems(item));
-        if (container[item.id] === 0) {
-            delete container[item.id];
-        }
-        if (includeEquip && newNumber < 0) {
-            this.discardMembersEquip(item, -newNumber);
-        }
-        var encoded_item = btoa(JSON.stringify(item));
+        // if (container[item.id] === 0) {
+        //     delete container[item.id];
+        // }
+        // if (includeEquip && newNumber < 0) {
+        //     this.discardMembersEquip(item, -newNumber);
+        // }
+        var encoded_item = btoa(JSON.stringify(item, getCircularReplacer()));
         var update_char_item_input = `{characterId: ${this.leader().data.id} `;
         update_char_item_input += `itemData: \\\"${encoded_item}\\\" `;
         update_char_item_input += `count: ${amount} }`;

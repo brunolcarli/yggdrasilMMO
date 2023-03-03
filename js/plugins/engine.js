@@ -158,6 +158,14 @@ function ko_respawn_message(){
 }
 
 
+function set_character_equipment(){
+  var e = $gamePlayer.data.equipment;
+  for (i=1; i<=5; i++){
+    $gameParty.leader().changeEquipById(i, e[i-1]._itemId);
+  }
+}
+
+
 function set_character_items(item_data){
   let items = {};
   let weapons = {};
@@ -180,4 +188,6 @@ function set_character_items(item_data){
   $gameParty._items = items;
   $gameParty._weapons = weapons;
   $gameParty._armors = armors;
+
+  set_character_equipment();
 }
