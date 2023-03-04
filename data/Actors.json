@@ -1,6 +1,6 @@
 [
 null,
-{"id":1,"battlerName":"Actor2_1","characterIndex":0,"characterName":"$DPS01","classId":1,"equips":[0,0,2,5,0],"faceIndex":0,"faceName":"Actor_dps","traits":[],"initialLevel":1,"maxLevel":99,"name":"dps","nickname":"dps","note":"State Icon Y-Axis : 64","profile":""},
-{"id":2,"battlerName":"Actor2_2","characterIndex":5,"characterName":"$TANKER01","classId":1,"equips":[0,0,2,5,0],"faceIndex":0,"faceName":"Actor_tanker","traits":[],"initialLevel":1,"maxLevel":99,"name":"tanker","nickname":"tanker","note":"State Icon Y-Axis : 64","profile":""},
-{"id":3,"battlerName":"Actor2_8","characterIndex":6,"characterName":"$SUPPORTER01","classId":1,"equips":[0,0,2,5,0],"faceIndex":0,"faceName":"Actor_supporter","traits":[],"initialLevel":1,"maxLevel":99,"name":"supporter","nickname":"supporter","note":"State Icon Y-Axis : 64","profile":"A woman whose destiny was to become a saint. She\nis full of passion and gives equal love to the enemy."}
+{"id":1,"battlerName":"Actor2_1","characterIndex":0,"characterName":"$DPS01","classId":1,"equips":[0,0,0,0,0],"faceIndex":0,"faceName":"Actor_dps","traits":[],"initialLevel":1,"maxLevel":99,"name":"dps","nickname":"dps","note":"State Icon Y-Axis : 64","profile":""},
+{"id":2,"battlerName":"Actor2_2","characterIndex":5,"characterName":"$TANKER01","classId":1,"equips":[0,0,0,0,0],"faceIndex":0,"faceName":"Actor_tanker","traits":[],"initialLevel":1,"maxLevel":99,"name":"tanker","nickname":"tanker","note":"State Icon Y-Axis : 64","profile":""},
+{"id":3,"battlerName":"Actor2_8","characterIndex":6,"characterName":"$SUPPORTER01","classId":1,"equips":[0,0,0,0,0],"faceIndex":0,"faceName":"Actor_supporter","traits":[],"initialLevel":1,"maxLevel":99,"name":"supporter","nickname":"supporter","note":"State Icon Y-Axis : 64","profile":"A woman whose destiny was to become a saint. She\nis full of passion and gives equal love to the enemy."}
 ]
