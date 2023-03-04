@@ -180,7 +180,7 @@ function user_characters() {
 
 function character_login_mutation(input_data, authorization) {
     const query = `characterLogin(input: ${input_data})`;
-    const payload = `{"query": "mutation charLogin{${query}{character { id lv name exp maxHp maxSp currentHp currentSp power resistance agility isKo areaLocation classType positionX positionY wallet items equipment skills { name } }}}"}`;
+    const payload = `{"query": "mutation charLogin{${query}{character { id lv name exp maxHp maxSp currentHp currentSp power resistance agility isKo areaLocation classType positionX positionY wallet items equipment skills equippedItem equippedSkill}}}"}`;
 
     var options = get_request_options(payload);
     // options['headers']['Authorization'] = authorization;
@@ -339,7 +339,7 @@ function query_character(character_id){
 
 
 function respawn_mutation(character_id){
-    let payload = `{"query": "mutation { characterRespawn(input: {id: ${character_id}}){character {id name isKo maxHp maxSp currentHp currentSp areaLocation classType positionX positionY}} }"}`;
+    let payload = `{"query": "mutation { characterRespawn(input: {id: ${character_id}}){character {id lv name exp maxHp maxSp currentHp currentSp power resistance agility isKo areaLocation classType positionX positionY wallet items equipment skills equippedItem equippedSkill}} }"}`;
     var options = get_request_options(payload);
     return fetch(server_host, options)
         .then(json)
@@ -542,6 +542,94 @@ function update_equipment_mutation(input_data){
     .then(json)
     .then(data => {
         return data;
+    })
+    .catch(err => {
+        console.error(err);
+    });
+}
+
+
+function query_skill_shop(character_id){
+    var headers = {
+        "cookie": "csrftoken=9YXcKsPnJSojmIXsjvqlM7TFP0tBfiU8GwVopYDWNKHSQnEUKLnPzJdsCjSb0Cfn",
+        "Content-Type": "application/json",
+        // "Authorization": `JWT ${token}`
+    };
+    let payload = `{\"query\":\"query skillshop{ character(id: ${character_id}){ ep } skills { skillId name classes spCost description epCost } }\"}`;
+    return fetch(server_host, {
+        "method": "POST",
+        "headers": headers,
+        "body": payload
+    })
+    .then(json)
+    .then(data => {
+        return data['data'];
+    })
+    .catch(err => {
+        console.error(err);
+    });
+}
+
+
+function learn_skill_mutation(character_id, skill_id){
+    var headers = {
+        "cookie": "csrftoken=9YXcKsPnJSojmIXsjvqlM7TFP0tBfiU8GwVopYDWNKHSQnEUKLnPzJdsCjSb0Cfn",
+        "Content-Type": "application/json",
+        // "Authorization": `JWT ${token}`
+    };
+    let payload = `{\"query\":\"mutation skilllearn{ learnSkill(input: {characterId: ${character_id} skillId: ${skill_id}}){ character{ id } } }\"}`;
+    return fetch(server_host, {
+        "method": "POST",
+        "headers": headers,
+        "body": payload
+    })
+    .then(json)
+    .then(data => {
+        return data['data'];
+    })
+    .catch(err => {
+        console.error(err);
+    });
+}
+
+
+function equip_skill_mutation(character_id, skill_id){
+    var headers = {
+        "cookie": "csrftoken=9YXcKsPnJSojmIXsjvqlM7TFP0tBfiU8GwVopYDWNKHSQnEUKLnPzJdsCjSb0Cfn",
+        "Content-Type": "application/json",
+        // "Authorization": `JWT ${token}`
+    };
+    let payload = `{\"query\":\"mutation skilllequip{ equipSkill(input: {characterId: ${character_id} skillId: ${skill_id}}){ character{ id } } }\"}`;
+    return fetch(server_host, {
+        "method": "POST",
+        "headers": headers,
+        "body": payload
+    })
+    .then(json)
+    .then(data => {
+        return data['data'];
+    })
+    .catch(err => {
+        console.error(err);
+    });
+}
+
+
+function equip_item_mutation(character_id, item_id){
+    var headers = {
+        "cookie": "csrftoken=9YXcKsPnJSojmIXsjvqlM7TFP0tBfiU8GwVopYDWNKHSQnEUKLnPzJdsCjSb0Cfn",
+        "Content-Type": "application/json",
+        // "Authorization": `JWT ${token}`
+    };
+    let payload = `{\"query\":\"mutation itemequip{ equipItem(input: {characterId: ${character_id} itemId: ${item_id}}){ character{ id } } }\"}`;
+    return fetch(server_host, {
+        "method": "POST",
+        "headers": headers,
+        "body": payload
+    })
+    .then(json)
+    .then(data => {
+        return data['data'];
     })
     .catch(err => {
         console.error(err);
