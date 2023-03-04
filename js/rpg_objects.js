@@ -5002,9 +5002,9 @@ Game_Party.prototype.gainItem = function(item, amount, includeEquip) {
         var lastNumber = this.numItems(item);
         var newNumber = lastNumber + amount;
         container[item.id] = newNumber.clamp(0, this.maxItems(item));
-        // if (container[item.id] === 0) {
-        //     delete container[item.id];
-        // }
+        if (container[item.id] === 0) {
+            delete container[item.id];
+        }
         // if (includeEquip && newNumber < 0) {
         //     this.discardMembersEquip(item, -newNumber);
         // }

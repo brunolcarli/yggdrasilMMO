@@ -32,7 +32,7 @@ function new_player_event_ws(data){
   let event_id = class_to_event(data['classType']);
   let event = Galv.SPAWN.event(event_id, data['x'], data['y'], false, data);
 
-  event._user.battler.addParam(0, data.max_hp-100);
+  event._user.battler.addParam(0, data.max_hp-10);
   event._user.battler.setHp(data.current_hp);
   event._user.battler.addParam(1, data.max_sp);
   event._user.battler.setMp(data.current_sp);
@@ -50,7 +50,7 @@ function new_player_event_api(data){
   data['x'] = data['positionX'];
   data['y'] = data['positionY'];
   let event = Galv.SPAWN.event(event_id, data['x'], data['y'], false, data);
-  event._user.battler.addParam(0, data.maxHp-100);
+  event._user.battler.addParam(0, data.maxHp-10);
   event._user.battler.setHp(data.currentHp);
   event._user.battler.addParam(1, data.maxSp);
   event._user.battler.setMp(data.currentSp);
@@ -163,6 +163,23 @@ function set_character_equipment(){
   for (i=1; i<=5; i++){
     $gameParty.leader().changeEquipById(i, e[i-1]._itemId);
   }
+  // set learned skills
+  for (i in $gamePlayer.data.skills){
+    $gameParty.leader().learnSkill($gamePlayer.data.skills[i]);
+  }
+
+  // Equip las equipped skill
+  if ($gamePlayer.data.equippedSkill){
+    $gameParty.leader()._toolSkillId = $gamePlayer.data.equippedSkill;
+    $gameParty.leader().setToolSkillID();
+  }
+
+  // Equip las equipped item
+  if ($gamePlayer.data.equippedItem){
+    $gameParty.leader()._toolItemId = $gamePlayer.data.equippedItem;
+    $gameParty.leader().setToolItemID();
+  }
+
 }
 
 
@@ -190,4 +207,73 @@ function set_character_items(item_data){
   $gameParty._armors = armors;
 
   set_character_equipment();
+}
+
+
+function skill_acquiring(chosen_skill, ep){
+  var skill_acquiring_options = ['Quit shop' ,'Acquire skill'];
+  var skill_description = `Description:\n${chosen_skill.description.match(/.{1,55}/g).join('\n')}`;
+  var skill_text = `Name: ${chosen_skill.name}\n`;
+  skill_text += `SP cost: ${chosen_skill.spCost}\n`;
+  skill_text += `EP cost: ${chosen_skill.epCost}\n`;
+  skill_text += `EP Available: ${ep}`;
+  $gameMessage.add(skill_description);
+  $gameMessage.add(skill_text);
+  $gameMessage.setChoices(skill_acquiring_options, 0, 0);
+  $gameMessage.setChoiceCallback(n => {
+    if (n == 1){
+      if (ep < chosen_skill.epCost){
+        $gameVariables.setValue(64, 1);
+      }
+      else {
+        $gameVariables.setValue(61, 0);
+        learn_skill_mutation($gamePlayer.data.id, chosen_skill.skillId).then(data => {
+          if (data.errors == undefined){
+            $gameVariables.setValue(66, chosen_skill.skillId);
+            $gameParty.leader().learnSkill(chosen_skill.skillId);
+            $gameVariables.setValue(65, 1);
+          }
+          else{
+            $gameVariables.setValue(61, 0);
+            $gameVariables.setValue(62, 0);
+            $gameVariables.setValue(63, 0);
+            $gameVariables.setValue(64, 0);
+            $gameVariables.setValue(65, 0);
+          }
+        });
+      }
+    }
+    else {
+      $gameVariables.setValue(61, 0);
+      $gameVariables.setValue(62, 0);
+      $gameVariables.setValue(63, 0);
+      $gameVariables.setValue(64, 0);
+      $gameVariables.setValue(65, 0);
+    }
+  });
+}
+
+function process_skill_shop(){
+  query_skill_shop($gamePlayer.data.id).then(data => {
+    let char_ep = data['character']['ep'];
+    let all_skills = data['skills'];
+    let char_skills = [];
+    let skill_choices = ['Quit shop'];
+    for (let i=0; i<all_skills.length; i++){
+      if (all_skills[i].classes.contains($gamePlayer.data.classType)){
+        char_skills.push(all_skills[i]);
+        skill_choices.push(all_skills[i].name);
+      }
+    }
+
+    $gameMessage.add('Hello apprentice.\nAre you up to learn some new skill?');
+    $gameMessage.add(`Evolution Points (EP): ${char_ep}`);
+    $gameMessage.setChoices(skill_choices, 0, 0);
+    $gameMessage.setChoiceCallback(n => {
+      if (n == 0){return}
+      $gameVariables.setValue(61, 1);
+      $gameVariables.setValue(62, char_skills[n-1]);
+      $gameVariables.setValue(63, char_ep);
+    });
+  });
 }

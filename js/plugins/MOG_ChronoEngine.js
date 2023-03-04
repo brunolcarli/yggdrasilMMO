@@ -1377,6 +1377,7 @@ Game_Actor.prototype.toolShieldID = function() {
 Game_Actor.prototype.equipToolItemID = function(itemid) {
     this._toolItemId = itemid;
 	this.setToolItemID();
+	equip_item_mutation($gamePlayer.data.id, itemid);
 };
 
 //==============================
@@ -1385,6 +1386,7 @@ Game_Actor.prototype.equipToolItemID = function(itemid) {
 Game_Actor.prototype.equipToolSkillID = function(itemid) {
     this._toolSkillId = itemid;
 	this.setToolSkillID();
+	equip_skill_mutation($gamePlayer.data.id, itemid);
 };
 
 //==============================
