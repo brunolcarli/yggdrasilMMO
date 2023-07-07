@@ -83,12 +83,13 @@ label {
     border:1px solid #3F6F71;
     border-radius:0px;
     color:white;
-    &:focus{
-        background-color: rgb(100, 147, 150, 0.7);
-        border:1px solid #3F6F71;
-        box-shadow: 0 0 0 0;
-        color:white;
-    };
+}
+
+.input-form-login:focus {
+    background-color: rgb(100, 147, 150, 0.7) !important;
+    border: 1px solid #3F6F71;
+    box-shadow: 0 0 0 0 !important;
+    color: white;
 }
 
 .title-alpha{
