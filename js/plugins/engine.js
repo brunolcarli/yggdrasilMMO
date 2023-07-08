@@ -17,7 +17,9 @@ function enemy_to_event(enemy_name){
     'poison_snake': 8,
     'killer_fungus': 9,
     'ent': 10,
-    'great_fairy': 7
+    'great_fairy': 7,
+    'golem': 11,
+    'orc': 12
   };
   return enemy2event[enemy_name];
 }
@@ -69,6 +71,7 @@ function render_map_enemies(data){
   for (i in data){
       let event_id = enemy_to_event(data[i]['name']);
       try{
+          console.log(data[i]);
           Galv.SPAWN.event(event_id, data[i]['positionX'], data[i]['positionY'], false, data[i]);
           // $gameMap._events[$gameMap._events.length-1].data = data[i];
       }
