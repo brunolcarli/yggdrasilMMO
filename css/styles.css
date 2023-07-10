@@ -103,3 +103,10 @@ label {
     width: 10rem;
     font-weight: 600;
 }
+
+.btn-login:hover{
+    color: #3F6F71;
+    border:2px solid #3F6F71;
+    width: 10rem;
+    font-weight: 600;
+}
