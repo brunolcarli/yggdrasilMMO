@@ -19,7 +19,8 @@ function enemy_to_event(enemy_name){
     'ent': 10,
     'great_fairy': 7,
     'golem': 11,
-    'orc': 12
+    'orc': 12,
+    'spirit': 13
   };
   return enemy2event[enemy_name];
 }
@@ -32,18 +33,23 @@ function new_player_event_ws(data){
   data['currentSp'] = data.current_sp;
 
   let event_id = class_to_event(data['classType']);
-  let event = Galv.SPAWN.event(event_id, data['x'], data['y'], false, data);
+  try {
+    let event = Galv.SPAWN.event(event_id, data['x'], data['y'], false, data);
 
-  event._user.battler.addParam(0, data.max_hp-10);
-  event._user.battler.setHp(data.current_hp);
-  event._user.battler.addParam(1, data.max_sp);
-  event._user.battler.setMp(data.current_sp);
-  event._user.battler.addParam(2, data.power);
-  event._user.battler.addParam(3, data.resistance);
-  event._user.battler.addParam(4, data.power);
-  event._user.battler.addParam(5, data.resistance);
-  event._user.battler.addParam(6, data.agility);
-  event._user.battler.refresh();
+    event._user.battler.addParam(0, data.max_hp-10);
+    event._user.battler.setHp(data.current_hp);
+    event._user.battler.addParam(1, data.max_sp);
+    event._user.battler.setMp(data.current_sp);
+    event._user.battler.addParam(2, data.power);
+    event._user.battler.addParam(3, data.resistance);
+    event._user.battler.addParam(4, data.power);
+    event._user.battler.addParam(5, data.resistance);
+    event._user.battler.addParam(6, data.agility);
+    event._user.battler.refresh();
+  }
+  catch(err){
+    console.log(err);
+  }
 }
 
 
@@ -51,18 +57,22 @@ function new_player_event_api(data){
   let event_id = class_to_event(data['classType']);
   data['x'] = data['positionX'];
   data['y'] = data['positionY'];
-  let event = Galv.SPAWN.event(event_id, data['x'], data['y'], false, data);
-  event._user.battler.addParam(0, data.maxHp-10);
-  event._user.battler.setHp(data.currentHp);
-  event._user.battler.addParam(1, data.maxSp);
-  event._user.battler.setMp(data.currentSp);
-  event._user.battler.addParam(2, data.power);
-  event._user.battler.addParam(3, data.resistance);
-  event._user.battler.addParam(4, data.power);
-  event._user.battler.addParam(5, data.resistance);
-  event._user.battler.addParam(6, data.agility);
-  event._user.battler.refresh();
-
+  try {
+    let event = Galv.SPAWN.event(event_id, data['x'], data['y'], false, data);
+    event._user.battler.addParam(0, data.maxHp-10);
+    event._user.battler.setHp(data.currentHp);
+    event._user.battler.addParam(1, data.maxSp);
+    event._user.battler.setMp(data.currentSp);
+    event._user.battler.addParam(2, data.power);
+    event._user.battler.addParam(3, data.resistance);
+    event._user.battler.addParam(4, data.power);
+    event._user.battler.addParam(5, data.resistance);
+    event._user.battler.addParam(6, data.agility);
+    event._user.battler.refresh();
+  }
+  catch(err){
+    console.log(err);
+  }
 }
 
 
@@ -71,7 +81,6 @@ function render_map_enemies(data){
   for (i in data){
       let event_id = enemy_to_event(data[i]['name']);
       try{
-          console.log(data[i]);
           Galv.SPAWN.event(event_id, data[i]['positionX'], data[i]['positionY'], false, data[i]);
           // $gameMap._events[$gameMap._events.length-1].data = data[i];
       }
