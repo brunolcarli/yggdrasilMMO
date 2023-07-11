@@ -47,6 +47,9 @@ function onCharacterEvent(data) {
     // 'character_exp_gain': onExpUp
 
   }
+  console.log('+++ EVENT RECEIVED ++++');
+  console.log(data);
+  console.log('+++++');
   let event_type = data['onCharacterEvent']['characterEvent']['eventType'];
   let event_data = data['onCharacterEvent']['characterEvent']['data'];
   if (event_type in valid_events) {
