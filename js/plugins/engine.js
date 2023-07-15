@@ -20,7 +20,8 @@ function enemy_to_event(enemy_name){
     'great_fairy': 7,
     'golem': 11,
     'orc': 12,
-    'spirit': 13
+    'spirit': 13,
+    'dagon': 14,
   };
   return enemy2event[enemy_name];
 }
